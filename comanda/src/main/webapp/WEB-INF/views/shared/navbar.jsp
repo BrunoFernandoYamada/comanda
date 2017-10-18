@@ -1,6 +1,6 @@
    <div class='navbar navbar-default' id='navbar'>
       <a class='navbar-brand' href='#'>
-        <i class='icon-file-text-alt'></i>
+        <i class="fa fa-file-text-o" aria-hidden="true"></i>
         Comanda
       </a>
       <ul class='nav navbar-nav pull-right'>

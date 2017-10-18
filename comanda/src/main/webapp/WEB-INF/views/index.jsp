@@ -24,6 +24,7 @@
 	type="text/css" />
 <link href="${images}/favicon.ico" rel="icon" type="image/ico" />
 <link href="${css}/font-awesome.css" rel="stylesheet" type="text/css" />
+<link href="${css}/pessoal.css" rel="stylesheet" type="text/css" />
 
 </head>
 <body class='main page'>
