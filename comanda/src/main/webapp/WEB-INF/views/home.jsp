@@ -21,12 +21,12 @@
 			<div class="col-lg-12">
 
 				<c:forEach items="${mesas}" var="mesa">
-					<div class="div_mesa col-xs-4 col-md-3 col-md-2 col-lg-1">
+					<div class="div_mesa col-xs-3 col-md-3 col-md-2 col-lg-1">
 						<div class="row">
 							<h4>${mesa.id}</h4>
 						</div>
 						<div class="row">
-							<img id="mesa_icone" alt="mesa" src="${images}/mesa.jpg">
+							<img class="img-responsive" id="mesa_icone" alt="mesa" src="${images}/mesa.jpg">
 						</div>
 					</div>
 				</c:forEach>
