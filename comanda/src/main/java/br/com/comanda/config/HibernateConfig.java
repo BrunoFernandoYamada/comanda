@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class HibernateConfig {
 	
-	private static final String DATABASE_URL = "jdbc:firebirdsql://localhost:3050/C:/firebird/database/COMANDA.FDB";
+	private static final String DATABASE_URL = "jdbc:firebirdsql://localhost:3050/C:\\firebird\\database\\COMANDA.FDB";
 	private static final String DATABASE_DRIVER = "org.firebirdsql.jdbc.FBDriver";
 	private static final String DATABASE_USERNAME = "SYSDBA";
 	private static final String DATABASE_PASSWORD = "masterkey";
@@ -37,6 +37,7 @@ public class HibernateConfig {
 		return dataSource;
 	}
 	
+	@Bean
 	public SessionFactory getSessionFactory(DataSource dataSource) {
 		
 		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource);
@@ -52,12 +53,13 @@ public class HibernateConfig {
 		
 		Properties properties = new Properties();
 		properties.put("hibernate.dialect", DATABASE_DIALECT);
-		properties.put("hibernate.show_sql", true);
-		properties.put("hibernate.format_sql", true);
+		properties.put("hibernate.show_sql", "true");
+		properties.put("hibernate.format_sql", "true");
 		
 		return properties;
 	}
 	
+	@Bean
 	public HibernateTransactionManager geTransactionManager(SessionFactory sessionFactory) {
 		
 		HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionFactory);
