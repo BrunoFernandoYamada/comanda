@@ -11,9 +11,11 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@ComponentScan(basePackages={"br.com.comanda.controller"})
+@ComponentScan(basePackages={"br.com.comanda.dto"})
+@EnableTransactionManagement
 public class HibernateConfig {
 	
 	private static final String DATABASE_URL = "jdbc:firebirdsql://localhost:3050/C:/firebird/database/COMANDA.FDB";
