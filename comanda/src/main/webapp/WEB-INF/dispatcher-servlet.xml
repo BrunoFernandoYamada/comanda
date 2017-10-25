@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
@@ -12,15 +13,39 @@
 	http://www.springframework.org/schema/mvc/spring-mvc.xsd
 	">
 	
-	<context:component-scan base-package="br.com.comanda.controller"></context:component-scan>
-	<context:component-scan base-package="br.com.comanda"></context:component-scan>
+	<context:component-scan base-package="br.com.comanda.controller"/>
+	<context:component-scan base-package="br.com.comanda"/>
 	
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/views/"></property>
-		<property name="suffix" value=".jsp"></property>
+		<property name="prefix" value="/WEB-INF/views/"/>
+		<property name="suffix" value=".jsp"/>
 	</bean>
 	
 	<mvc:annotation-driven/>
 	<mvc:resources location="/assets/" mapping="/resources/**"></mvc:resources>
+	
+	<bean id="dataSource" class="org.firebirdsql.pool.FBWrappingDataSource">
+    <property name="database">
+      <value>${firebird.database}</value>
+    </property>
+    <property name="userName">
+      <value>${jdbc.username}</value>
+    </property>
+    <property name="password">
+      <value>${jdbc.password}</value>
+    </property>
+    <property name="maxPoolSize">
+      <value>${jdbc.maxPoolSize}</value>
+    </property>
+    <property name="minPoolSize">
+      <value>${jdbc.minPoolSize}</value>
+    </property>
+    <property name="maxStatements">
+      <value>${jdbc.maxStatements}</value>
+    </property>
+    <property name="type">
+      <value>${firebird.connection.type}</value>
+    </property>
+  </bean>
 	
 </beans>

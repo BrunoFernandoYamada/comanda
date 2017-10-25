@@ -1,3 +1,8 @@
+/**
+ * @author Bruno Fernando Yamada
+ * 23 de out de 2017
+ *	
+ */
 package br.com.comanda.daoimpl;
 
 import org.hibernate.SessionFactory;

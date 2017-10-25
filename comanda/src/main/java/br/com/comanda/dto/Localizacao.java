@@ -2,7 +2,7 @@ package br.com.comanda.dto;
 
 import javax.persistence.Entity;
 
-@Entity
+
 public class Localizacao {
 	private Long id;
 	private String nome;

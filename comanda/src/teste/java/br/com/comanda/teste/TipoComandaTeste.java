@@ -1,3 +1,8 @@
+/*
+ * Author: Bruno Fernando Yamada
+ * 23 de out de 2017
+ * Classe Responsável por Teste TipoComanda
+*/
 package br.com.comanda.teste;
 
 import static org.junit.Assert.assertEquals;
@@ -13,6 +18,7 @@ public class TipoComandaTeste {
 	
 	private static AnnotationConfigApplicationContext context;
 	private static TipoComandaDAO tipoComandaDAO;
+	private TipoComanda tipoComanda;
 	
 	@BeforeClass
 	public static void init() {
@@ -28,10 +34,10 @@ public class TipoComandaTeste {
 	@Test
 	public void adicionarTipoComandaTeste() {
 		
-		TipoComanda tipo = new TipoComanda();
-		tipo.setNome("Mesa");
+		tipoComanda = new TipoComanda();
+		tipoComanda.setNome("Delivery");
 		
-		assertEquals("Tipo de Comanda cadastrado com sucesso!", true, tipoComandaDAO.adicionar(tipo));
+		assertEquals("Tipo de Comanda cadastrado com sucesso!", true, tipoComandaDAO.adicionar(tipoComanda));
 		
 	}
 

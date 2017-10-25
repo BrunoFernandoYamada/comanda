@@ -1,10 +1,15 @@
+/**
+ * @author Bruno Fernando Yamada
+ * 23 de out de 2017
+ *	
+ */
 package br.com.comanda.config;
 
 import java.util.Properties;
 
 import javax.sql.DataSource;
 
-import org.apache.commons.dbcp2.BasicDataSource;
+import org.firebirdsql.pool.FBWrappingDataSource;
 import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -18,8 +23,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class HibernateConfig {
 	
-	private static final String DATABASE_URL = "jdbc:firebirdsql://localhost:3050/C:\\firebird\\database\\COMANDA.FDB";
-	private static final String DATABASE_DRIVER = "org.firebirdsql.jdbc.FBDriver";
+	//Configuração de conexão com Firebird
+	private static final String DATABASE_URL = "//localhost:3050/C:\\firebird\\database\\COMANDA.FDB";
 	private static final String DATABASE_USERNAME = "SYSDBA";
 	private static final String DATABASE_PASSWORD = "masterkey";
 	private static final String DATABASE_DIALECT = "org.hibernate.dialect.FirebirdDialect";
@@ -28,13 +33,30 @@ public class HibernateConfig {
 	@Bean
 	public DataSource getDataSource() {
 		
-		BasicDataSource dataSource = new BasicDataSource();
 		
+		
+		/* Configuração Para outros SGBD's
+		
+		BasicDataSource dataSource = new BasicDataSource();
+		dataSource.setAlias(DATABASE_ALIAS);
 		dataSource.setUrl(DATABASE_URL);
 		dataSource.setDriverClassName(DATABASE_DRIVER);
 		dataSource.setUsername(DATABASE_USERNAME);
 		dataSource.setPassword(DATABASE_PASSWORD);
+		*/
+	
+		//DataSource Modelo Firebird
+		FBWrappingDataSource dataSource = new FBWrappingDataSource();
+		dataSource.setDatabase(DATABASE_URL);
+		dataSource.setUserName(DATABASE_USERNAME);
+		dataSource.setPassword(DATABASE_PASSWORD);
+		dataSource.setMaxPoolSize(5);
+		dataSource.setMinPoolSize(1);
+		dataSource.setPooling(true);
+		dataSource.setType("TYPE4");
+		dataSource.setEncoding("UTF8");
 		return dataSource;
+		
 	}
 	
 	@Bean
@@ -42,7 +64,7 @@ public class HibernateConfig {
 		
 		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource);
 		builder.addProperties(getHibernateProperties());
-		builder.addPackages("br.com.comanda.dto");
+		builder.scanPackages("br.com.comanda.dto");
 		
 		return builder.buildSessionFactory();
 		
@@ -55,6 +77,8 @@ public class HibernateConfig {
 		properties.put("hibernate.dialect", DATABASE_DIALECT);
 		properties.put("hibernate.show_sql", "true");
 		properties.put("hibernate.format_sql", "true");
+		properties.put("hibernate.hbm2ddl.auto", "create");
+		
 		
 		return properties;
 	}
