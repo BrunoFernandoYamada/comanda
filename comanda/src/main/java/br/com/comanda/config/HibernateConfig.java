@@ -50,8 +50,8 @@ public class HibernateConfig {
 		dataSource.setDatabase(DATABASE_URL);
 		dataSource.setUserName(DATABASE_USERNAME);
 		dataSource.setPassword(DATABASE_PASSWORD);
-		dataSource.setMaxPoolSize(5);
-		dataSource.setMinPoolSize(1);
+		/*dataSource.setMaxPoolSize((int) 5);
+		dataSource.setMinPoolSize((int) 1);*/
 		dataSource.setPooling(true);
 		dataSource.setType("TYPE4");
 		dataSource.setEncoding("UTF8");

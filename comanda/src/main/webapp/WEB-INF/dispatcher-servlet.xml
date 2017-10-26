@@ -24,28 +24,5 @@
 	<mvc:annotation-driven/>
 	<mvc:resources location="/assets/" mapping="/resources/**"></mvc:resources>
 	
-	<bean id="dataSource" class="org.firebirdsql.pool.FBWrappingDataSource">
-    <property name="database">
-      <value>${firebird.database}</value>
-    </property>
-    <property name="userName">
-      <value>${jdbc.username}</value>
-    </property>
-    <property name="password">
-      <value>${jdbc.password}</value>
-    </property>
-    <property name="maxPoolSize">
-      <value>${jdbc.maxPoolSize}</value>
-    </property>
-    <property name="minPoolSize">
-      <value>${jdbc.minPoolSize}</value>
-    </property>
-    <property name="maxStatements">
-      <value>${jdbc.maxStatements}</value>
-    </property>
-    <property name="type">
-      <value>${firebird.connection.type}</value>
-    </property>
-  </bean>
 	
 </beans>
