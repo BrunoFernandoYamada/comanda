@@ -7,6 +7,8 @@ package br.com.comanda.teste;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.List;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -30,15 +32,55 @@ public class TipoComandaTeste {
 		tipoComandaDAO = (TipoComandaDAO) context.getBean("tipoComandaDAO");	
 			
 		}
-	
+	/*
 	@Test
 	public void adicionarTipoComandaTeste() {
 		
 		tipoComanda = new TipoComanda();
-		tipoComanda.setNome("Delivery");
+		tipoComanda.setNome("Fast Sell");
 		
 		assertEquals("Tipo de Comanda cadastrado com sucesso!", true, tipoComandaDAO.adicionar(tipoComanda));
 		
 	}
+	
+*/
+/*	
+	@Test
+	public void buscarTipoComandaTeste() {
+		
+		tipoComanda = tipoComandaDAO.buscar(Integer.valueOf(1)); 
+		System.err.println(tipoComanda.getNome());
+		assertEquals("Tipo de Comanda cadastrado com sucesso!", "Delivery", tipoComanda.getNome());
+		
+	}
+	*/
+	/*
+	@Test
+	public void excluirTipoComandaTeste() {
+		
+		tipoComanda = tipoComandaDAO.buscar(1);
 
+		assertEquals("Tipo de Comanda excluída com sucesso!", true, tipoComandaDAO.excluir(tipoComanda));
+		System.out.println("Tipo de Comanda excluída com sucesso!");
+	}
+*/
+	/*
+	@Test
+	public void alterarTipoComandaTeste() {
+		
+		tipoComanda = tipoComandaDAO.buscar(3);
+		tipoComanda.setNome("Venda Rápida");
+
+		assertEquals("Tipo de Comanda excluída com sucesso!", true, tipoComandaDAO.alterar(tipoComanda));
+		System.out.println("Tipo de Comanda alterada com sucesso!");
+	}
+	*/
+	@Test
+	public void listarTipoComandaTeste() {
+		
+		List<TipoComanda> listaTipoComanda = tipoComandaDAO.listar();
+
+		assertEquals("Tipo de Comanda Listada com sucesso!", 3 ,listaTipoComanda.size());
+		
+	}
 }

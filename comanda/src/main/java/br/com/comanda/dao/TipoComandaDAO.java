@@ -7,9 +7,10 @@ import br.com.comanda.dto.TipoComanda;
 public interface TipoComandaDAO {
 	
 	boolean adicionar(TipoComanda tipoComanda);
-	/*boolean excluir(TipoComanda tipoComanda);
+	TipoComanda buscar(int id);
+	boolean excluir(TipoComanda tipoComanda);
 	boolean alterar(TipoComanda tipoComanda);
 	List<TipoComanda> listar();
-	TipoComanda buscar(int id);*/
+	
 	
 }

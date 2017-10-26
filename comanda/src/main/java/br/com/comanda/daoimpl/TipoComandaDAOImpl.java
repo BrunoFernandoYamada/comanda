@@ -5,7 +5,10 @@
  */
 package br.com.comanda.daoimpl;
 
+import java.util.List;
+
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,8 +33,44 @@ public class TipoComandaDAOImpl implements TipoComandaDAO {
 			e.printStackTrace();
 			return false;
 		}
+	}
+
+	@Override
+	public TipoComanda buscar(int id) {
 		
+		return sessionFactory.getCurrentSession().get(TipoComanda.class, id);
+	}
+
+	@Override
+	public boolean excluir(TipoComanda tipoComanda) {
+		try {
+			sessionFactory.getCurrentSession().delete(tipoComanda);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	@Override
+	public boolean alterar(TipoComanda tipoComanda) {
 		
+		try {
+			sessionFactory.getCurrentSession().update(tipoComanda);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	@Override
+	public List<TipoComanda> listar() {
+		
+		String listarQuery = "from TipoComanda";
+		Query query = sessionFactory.getCurrentSession().createQuery(listarQuery);
+
+		return query.getResultList();
 	}
 
 }
