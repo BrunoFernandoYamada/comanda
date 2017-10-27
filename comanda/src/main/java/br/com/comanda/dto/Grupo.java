@@ -1,22 +1,30 @@
 package br.com.comanda.dto;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.GenericGenerator;
 
+@Entity
 public class Grupo {
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	
 	private Long id;
 	private String nome;
+	
+	@Id
+	@GeneratedValue(generator = "inc")
+	@GenericGenerator(name = "inc", strategy = "increment")
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	@Column(length=50,unique=true,nullable=false)
 	public String getNome() {
 		return nome;
 	}
