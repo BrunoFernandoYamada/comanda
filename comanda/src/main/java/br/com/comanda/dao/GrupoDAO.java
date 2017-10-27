@@ -6,10 +6,10 @@ import br.com.comanda.dto.Grupo;
 
 public interface GrupoDAO {
 	
-	boolean adicionar(Grupo Grupo);
+	boolean adicionar(Grupo grupo);
 	Grupo buscar(int id);
-	boolean excluir(Grupo Grupo);
-	boolean alterar(Grupo Grupo);
+	boolean excluir(Grupo grupo);
+	boolean alterar(Grupo grupo);
 	List<Grupo> listar();
 
 }

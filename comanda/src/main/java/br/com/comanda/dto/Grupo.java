@@ -11,16 +11,16 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 public class Grupo {
 	
-	private Long id;
+	private int id;
 	private String nome;
 	
 	@Id
 	@GeneratedValue(generator = "inc")
 	@GenericGenerator(name = "inc", strategy = "increment")
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	
