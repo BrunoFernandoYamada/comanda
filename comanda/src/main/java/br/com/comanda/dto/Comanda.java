@@ -2,19 +2,20 @@ package br.com.comanda.dto;
 
 import java.util.Calendar;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.GenericGenerator;
 
+@Entity
 public class Comanda {
 	
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id;
-	
+	private Long id;	
 	private int numeroComanda;
 	private Cliente cliente;
 	private Calendar horaAbertura;
@@ -23,30 +24,39 @@ public class Comanda {
 	private TipoComanda tipo;
 	private Double desconto;
 	private Double valorTotal;
+
+	@Id
+	@GeneratedValue(generator="inc")
+	@GenericGenerator(name="inc", strategy="increment")
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
 	}
+	@Column(unique=false,nullable=false)
 	public int getNumeroComanda() {
 		return numeroComanda;
 	}
 	public void setNumeroComanda(int numeroComanda) {
 		this.numeroComanda = numeroComanda;
 	}
+	@OneToOne
+	@Column(unique=false,nullable=true)
 	public Cliente getCliente() {
 		return cliente;
 	}
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
+	@Temporal(TemporalType.TIME)
 	public Calendar getHoraAbertura() {
 		return horaAbertura;
 	}
 	public void setHoraAbertura(Calendar horaAbertura) {
 		this.horaAbertura = horaAbertura;
 	}
+	@Temporal(TemporalType.TIME)
 	public Calendar getHoraFechamento() {
 		return horaFechamento;
 	}
@@ -59,6 +69,8 @@ public class Comanda {
 	public void setStatus(Boolean status) {
 		this.status = status;
 	}
+	@OneToOne
+	@Column(unique=false,nullable=false)
 	public TipoComanda getTipo() {
 		return tipo;
 	}
