@@ -29,7 +29,7 @@ public class ComandaTeste {
 		comandaDAO = (ComandaDAO) context.getBean("comandaDAO");
 		tipoComandaDAO = (TipoComandaDAO) context.getBean("tipoComandaDAO");
 	}
-
+/*
 	@Test
 	public void AdicionarComandaTeste() {
 
@@ -43,7 +43,7 @@ public class ComandaTeste {
 		assertEquals("Comanda adicionada com sucesso", true, comandaDAO.adicionar(comanda));
 
 	}
-	/*
+	
 
 	@Test
 	public void BuscarComandaTeste() {
@@ -71,6 +71,8 @@ public class ComandaTeste {
 
 	}
 	
+	
+	
 	@Test
 	public void excluirComandaTeste() {
 
@@ -80,4 +82,11 @@ public class ComandaTeste {
 
 	}
 	*/
+	@Test	
+	public void listarComandaAtivaTeste() {
+
+		assertEquals("Comanda ativa listada com sucesso", 1, comandaDAO.listar().size());
+
+	}
+	
 }

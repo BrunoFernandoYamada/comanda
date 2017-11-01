@@ -11,4 +11,5 @@ public interface ComandaDAO {
 	boolean excluir(Comanda comanda);
 	boolean alterar(Comanda comanda);
 	List<Comanda> listar();
+	List<Comanda> listarComandaAberta();
 }

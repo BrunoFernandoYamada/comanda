@@ -62,4 +62,14 @@ public class ComandaDAOImpl implements ComandaDAO {
 		return query.getResultList();
 	}
 
+	@Override
+	public List<Comanda> listarComandaAberta() {
+		String queryListarComandas = "FROM Comanda WHERE status = :status";
+		Query query = sessionFactory.getCurrentSession().createQuery(queryListarComandas);
+		query.setParameter("status", true);
+		return query.getResultList();
+	}
+	
+
+
 }
