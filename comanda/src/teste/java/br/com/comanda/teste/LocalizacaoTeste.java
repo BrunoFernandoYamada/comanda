@@ -41,7 +41,7 @@ public class LocalizacaoTeste {
 		
 	}
 
-
+	/*
 	@Test
 	public void buscarLocalizacaoTeste() {
 		
@@ -84,6 +84,6 @@ public class LocalizacaoTeste {
 	}
 	
 	
-	
+	*/
 
 }

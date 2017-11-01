@@ -8,24 +8,23 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.GenericGenerator;
+
+@Entity
 public class Produto {
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+
 	private Long id;
-	
 	private String nome;
 	private String codigoBarra;
-	
-	@OneToOne(fetch=FetchType.EAGER)
-	@JoinColumn(nullable=true,unique=false)
 	private Grupo grupo;
 	private String imagemUrl;
 	private Double preco;
-	
-	@OneToOne(fetch=FetchType.EAGER)
-	@JoinColumn(nullable=true,unique=false)
 	private Localizacao localizacao;
 	private int quantidadeEstoque;
+	
+	@Id
+	@GeneratedValue(generator="inc")
+	@GenericGenerator(name="inc", strategy="increment")
 	public Long getId() {
 		return id;
 	}
@@ -44,6 +43,9 @@ public class Produto {
 	public void setCodigoBarra(String codigoBarra) {
 		this.codigoBarra = codigoBarra;
 	}
+	
+	@OneToOne(fetch=FetchType.EAGER)
+	@JoinColumn(nullable=true,unique=false)
 	public Grupo getGrupo() {
 		return grupo;
 	}
@@ -62,6 +64,8 @@ public class Produto {
 	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
+	@OneToOne(fetch=FetchType.EAGER)
+	@JoinColumn(nullable=true,unique=false)
 	public Localizacao getLocalizacao() {
 		return localizacao;
 	}

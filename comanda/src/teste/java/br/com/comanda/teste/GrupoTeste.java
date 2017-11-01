@@ -39,7 +39,7 @@ public class GrupoTeste {
 		assertEquals("Grupo cadastrado com sucesso!", true, grupoDAO.adicionar(grupo));
 		
 	}
-	
+	/*
 	
 	@Test
 	public void buscarGrupoTeste() {
@@ -83,5 +83,5 @@ public class GrupoTeste {
 	}
 	
 	
-	
+	*/
 }

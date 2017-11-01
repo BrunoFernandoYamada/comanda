@@ -12,5 +12,4 @@ public interface ClienteDAO {
 	boolean alterar(Cliente cliente);
 	List<Cliente> listar();
 
-	
 }
