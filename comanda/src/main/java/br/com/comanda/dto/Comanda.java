@@ -1,11 +1,12 @@
 package br.com.comanda.dto;
 
-import java.util.Calendar;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -18,8 +19,8 @@ public class Comanda {
 	private Long id;	
 	private int numeroComanda;
 	private Cliente cliente;
-	private Calendar horaAbertura;
-	private Calendar horaFechamento;
+	private Date horaAbertura;
+	private Date horaFechamento;
 	private Boolean status;
 	private TipoComanda tipo;
 	private Double desconto;
@@ -42,7 +43,7 @@ public class Comanda {
 		this.numeroComanda = numeroComanda;
 	}
 	@OneToOne
-	@Column(unique=false,nullable=true)
+	@JoinColumn(unique=false,nullable=true)
 	public Cliente getCliente() {
 		return cliente;
 	}
@@ -50,17 +51,17 @@ public class Comanda {
 		this.cliente = cliente;
 	}
 	@Temporal(TemporalType.TIME)
-	public Calendar getHoraAbertura() {
+	public Date getHoraAbertura() {
 		return horaAbertura;
 	}
-	public void setHoraAbertura(Calendar horaAbertura) {
+	public void setHoraAbertura(Date horaAbertura) {
 		this.horaAbertura = horaAbertura;
 	}
 	@Temporal(TemporalType.TIME)
-	public Calendar getHoraFechamento() {
+	public Date getHoraFechamento() {
 		return horaFechamento;
 	}
-	public void setHoraFechamento(Calendar horaFechamento) {
+	public void setHoraFechamento(Date horaFechamento) {
 		this.horaFechamento = horaFechamento;
 	}
 	public Boolean getStatus() {
@@ -70,7 +71,7 @@ public class Comanda {
 		this.status = status;
 	}
 	@OneToOne
-	@Column(unique=false,nullable=false)
+	@JoinColumn(unique=false,nullable=false)
 	public TipoComanda getTipo() {
 		return tipo;
 	}

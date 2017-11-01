@@ -3,11 +3,16 @@ package br.com.comanda.daoimpl;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.comanda.dao.ComandaDAO;
 import br.com.comanda.dto.Comanda;
 
+@Repository("comandaDAO")
+@Transactional
 public class ComandaDAOImpl implements ComandaDAO {
 	
 	@Autowired
@@ -25,8 +30,8 @@ public class ComandaDAOImpl implements ComandaDAO {
 
 	@Override
 	public Comanda buscar(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return sessionFactory.getCurrentSession().get(Comanda.class, id);
 	}
 
 	@Override
@@ -42,17 +47,19 @@ public class ComandaDAOImpl implements ComandaDAO {
 	@Override
 	public boolean alterar(Comanda comanda) {
 		try {
-			sessionFactory.getCurrentSession().persist(comanda);
+			sessionFactory.getCurrentSession().update(comanda);
 			return true;
 		}catch(Exception ex) {
-			return false;
+			
 		}
+		return false;
 	}
 
 	@Override
 	public List<Comanda> listar() {
-		// TODO Auto-generated method stub
-		return null;
+		String queryListarComandas = "FROM Comanda";
+		Query query = sessionFactory.getCurrentSession().createQuery(queryListarComandas);
+		return query.getResultList();
 	}
 
 }

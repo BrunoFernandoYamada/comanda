@@ -32,7 +32,7 @@ public class TipoComandaTeste {
 		tipoComandaDAO = (TipoComandaDAO) context.getBean("tipoComandaDAO");	
 			
 		}
-	/*
+	
 	@Test
 	public void adicionarTipoComandaTeste() {
 		
@@ -42,7 +42,7 @@ public class TipoComandaTeste {
 		assertEquals("Tipo de Comanda cadastrado com sucesso!", true, tipoComandaDAO.adicionar(tipoComanda));
 		
 	}
-	
+	/*
 */
 /*	
 	@Test
@@ -74,7 +74,7 @@ public class TipoComandaTeste {
 		assertEquals("Tipo de Comanda excluída com sucesso!", true, tipoComandaDAO.alterar(tipoComanda));
 		System.out.println("Tipo de Comanda alterada com sucesso!");
 	}
-	*/
+	
 	@Test
 	public void listarTipoComandaTeste() {
 		
@@ -83,4 +83,5 @@ public class TipoComandaTeste {
 		assertEquals("Tipo de Comanda Listada com sucesso!", 3 ,listaTipoComanda.size());
 		
 	}
+	*/
 }
