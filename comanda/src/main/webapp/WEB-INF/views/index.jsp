@@ -45,8 +45,8 @@
 		
 		<!-- Content -->
 
-		<c:if test="${userClickHome == true}">
-			<%@include file="home.jsp" %>
+		<c:if test="${userClickComanda == true}">
+			<%@include file="comanda.jsp" %>
 		</c:if>
 
 
