@@ -18,19 +18,19 @@
 		<!--  Painel Central -->
 		<div class='panel-body'>
 
-			<div class="col-lg-12">
+			<div class="col-lg-12 tabela-mesa">
 
 				<c:forEach items="${comandas}" var="comanda">
-					<div class="div_mesa col-xs-3 col-md-3 col-md-2 col-lg-1">
+					<div class="div_mesa">
 						<div class="row">
 							<h4>${comanda.numeroComanda}</h4>
 						</div>
 						<div class="row">
 						<c:if test="${comanda.status == true}">
-							<img class="img-responsive" id="mesa_icone" alt="mesa" src="${images}/mesa.jpg">
+							<img class="img-responsive" id="mesa_icone" alt="mesa" src="${images}/mesa-fechada.png">
 						</c:if>
 						<c:if test="${comanda.status == false}">
-							<img class="img-responsive" id="mesa_icone" alt="mesa" src="${images}/mesa-fechada.jpg">
+							<img class="img-responsive" id="mesa_icone" alt="mesa" src="${images}/mesa.png">
 						</c:if>
 							
 						</div>

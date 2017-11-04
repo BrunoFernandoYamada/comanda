@@ -37,7 +37,7 @@ public class TipoComandaTeste {
 	public void adicionarTipoComandaTeste() {
 		
 		tipoComanda = new TipoComanda();
-		tipoComanda.setNome("Fast Sell");
+		tipoComanda.setNome("Comanda");
 		
 		assertEquals("Tipo de Comanda cadastrado com sucesso!", true, tipoComandaDAO.adicionar(tipoComanda));
 		

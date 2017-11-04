@@ -4,8 +4,14 @@
 }
 
 .div_mesa{
-	margin: 2px;
+	margin: 8px;
 	border-bottom: 1px solid #dddddd;
-	padding: 5px;
+	padding: 10px;
+	display: inline-block;
+
+}
+
+.tabela-mesa{
+		
 }
 
