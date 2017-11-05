@@ -3,6 +3,7 @@ package br.com.comanda.dao;
 import java.util.List;
 
 import br.com.comanda.dto.Comanda;
+import br.com.comanda.dto.TipoComanda;
 
 public interface ComandaDAO {
 	
@@ -12,4 +13,5 @@ public interface ComandaDAO {
 	boolean alterar(Comanda comanda);
 	List<Comanda> listar();
 	List<Comanda> listarComandaAberta();
+	List<Comanda> listarComandaAbertaPorTipoComanda(TipoComanda tipocomanda);
 }

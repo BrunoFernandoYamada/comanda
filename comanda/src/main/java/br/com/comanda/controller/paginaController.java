@@ -12,6 +12,7 @@ import br.com.comanda.dao.ComandaDAO;
 import br.com.comanda.dao.ConfigDAO;
 import br.com.comanda.dto.Comanda;
 import br.com.comanda.dto.Mesa;
+import br.com.comanda.dto.TipoComanda;
 
 @Controller
 public class paginaController {
@@ -30,9 +31,12 @@ public class paginaController {
 			configDAO.adicionarConfigPadrao();
 		}
 		
+		TipoComanda tipoComanda = new TipoComanda();
+		tipoComanda.setId(1);
+		
 		List<Comanda> comandas = new ArrayList<Comanda>();
 		int quantidadeMesas = configDAO.buscar(1).getQuantComanda();
-		List<Comanda> comandasAbertas = comandaDAO.listarComandaAberta();
+		List<Comanda> comandasAbertas = comandaDAO.listarComandaAbertaPorTipoComanda(tipoComanda);
 		
 		for (int i = 1; i <= quantidadeMesas; i++) {
 

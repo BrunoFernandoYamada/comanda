@@ -35,6 +35,10 @@
             <i class="fa fa-cloud" aria-hidden="true"></i>
             <a href='#'>Backup</a>
           </li>
+           <li class='launcher'>
+            <i class="fa fa-cog" aria-hidden="true"></i>
+            <a href='#'>Config</a>
+          </li>
           
         </ul>
         <div data-toggle='tooltip' id='beaker' title='Made by lab2023'></div>

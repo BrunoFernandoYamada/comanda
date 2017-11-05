@@ -1,17 +1,28 @@
-#mesa_icone{
+#mesa_icone {
 	width: 100px;
 	height: 100px;
+	margin: 2px;
 }
 
-.div_mesa{
-	margin: 8px;
-	border-bottom: 1px solid #dddddd;
-	padding: 10px;
+.div-mesa {
+	margin: 1px 0px 1px 0px;
 	display: inline-block;
-
 }
 
-.tabela-mesa{
-		
+.tabela-mesa {
+	
 }
 
+.btn-mesa {
+	background-color: white;
+	padding: 2px 15px 2px 15px;;	
+}
+
+.btn-mesa h5{
+	text-align: left;	
+}
+
+.numero-mesa {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}

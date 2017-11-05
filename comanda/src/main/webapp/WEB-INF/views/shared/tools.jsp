@@ -1,8 +1,7 @@
 		<section id='tools'>
 			<ul class='breadcrumb' id='breadcrumb'>
 				<li class='title'>Dashboard</li>
-				<li><a href="#">Lorem</a></li>
-				<li class='active'><a href="#">ipsum</a></li>
+				<li><a href="#">Comandas</a></li>
 			</ul>
 			<div id='toolbar'>
 				<div class='btn-group'>

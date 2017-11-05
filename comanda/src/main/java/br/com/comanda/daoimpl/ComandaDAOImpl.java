@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.com.comanda.dao.ComandaDAO;
 import br.com.comanda.dto.Comanda;
+import br.com.comanda.dto.TipoComanda;
 
 @Repository("comandaDAO")
 @Transactional
@@ -67,6 +68,18 @@ public class ComandaDAOImpl implements ComandaDAO {
 		String queryListarComandas = "FROM Comanda WHERE status = :status";
 		Query query = sessionFactory.getCurrentSession().createQuery(queryListarComandas);
 		query.setParameter("status", true);
+		return query.getResultList();
+	}
+
+	/* (non-Javadoc)
+	 * @see br.com.comanda.dao.ComandaDAO#listarComandaAbertaPorTipoComanda()
+	 */
+	@Override
+	public List<Comanda> listarComandaAbertaPorTipoComanda(TipoComanda tipoComanda) {
+		String queryListarComandas = "FROM Comanda WHERE status = :status AND tipo = :tipo";
+		Query query = sessionFactory.getCurrentSession().createQuery(queryListarComandas);
+		query.setParameter("status", true);
+		query.setParameter("tipo", tipoComanda);
 		return query.getResultList();
 	}
 	
