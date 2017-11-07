@@ -3,7 +3,7 @@
         <ul id='dock'>
           <li class='active launcher'>
             <i class="fa fa-file-text-o" aria-hidden="true"></i>
-            <a href="forms.html">Comandas</a>
+            <a href="${contextRoot}/comanda">Comandas</a>
           </li>
           <li class='launcher'>
             <i class="fa fa-motorcycle" aria-hidden="true"></i>
@@ -37,7 +37,7 @@
           </li>
            <li class='launcher'>
             <i class="fa fa-cog" aria-hidden="true"></i>
-            <a href='#'>Config</a>
+            <a href='${contextRoot}/comanda/config'>Config</a>
           </li>
           
         </ul>

@@ -48,7 +48,10 @@
 		<c:if test="${userClickComanda == true}">
 			<%@include file="comanda.jsp" %>
 		</c:if>
-
+		
+		<c:if test="${UserClickConfig == true}">
+			<%@include file="config.jsp" %>
+		</c:if>
 
 
 

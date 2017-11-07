@@ -5,13 +5,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.comanda.dao.ComandaDAO;
 import br.com.comanda.dao.ConfigDAO;
 import br.com.comanda.dto.Comanda;
-import br.com.comanda.dto.Mesa;
 import br.com.comanda.dto.TipoComanda;
 
 @Controller
@@ -64,4 +65,24 @@ public class paginaController {
 
 	return mv;
 	}
+	
+	@RequestMapping(value = "/config", method = RequestMethod.GET)
+	public ModelAndView abreConfig() {
+		
+		ModelAndView mv = new ModelAndView("index");
+		mv.addObject("config", configDAO.buscar(1));
+		mv.addObject("titulo", "Comanda");
+		mv.addObject("mensagem", "Bem vindo ao Sitema Comanda!");
+		mv.addObject("UserClickConfig", true);
+		
+		return mv;
+	}
+	/*
+	@RequestMapping(value = "/config", method = RequestMethod.POST)
+	public ModelAndView salvaConfig(Model model) {
+		
+		
+		return mv;
+	}
+	*/
 }
