@@ -76,8 +76,7 @@ public class PaginaController {
 		
 		ModelAndView mv = new ModelAndView("index");
 		mv.addObject("config", configDAO.buscar(1));
-		mv.addObject("titulo", "Comanda");
-		mv.addObject("mensagem", "Bem vindo ao Sitema Comanda!");
+		mv.addObject("titulo", "Config");
 		mv.addObject("UserClickConfig", true);
 		
 		return mv;
@@ -94,7 +93,6 @@ public class PaginaController {
 		}
 		
 		configDAO.alterar(config);
-		
 		return "redirect:/config";	
 	}
 	
