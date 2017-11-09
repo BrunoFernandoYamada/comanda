@@ -53,6 +53,13 @@
 			<%@include file="config.jsp" %>
 		</c:if>
 
+		<c:if test="${UserClickComandaGerenciamento == true}">
+			<%@include file="comanda-gerenciamento.jsp" %>
+		</c:if>
+		
+		<c:if test="${UserClickComandaCadastro == true}">
+			<%@include file="comanda-cadastro.jsp" %>
+		</c:if>
 
 
 		<!-- End of Content  -->

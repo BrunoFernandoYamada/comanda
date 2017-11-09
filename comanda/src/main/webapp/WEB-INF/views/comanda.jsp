@@ -22,7 +22,7 @@
 
 				<c:forEach items="${comandas}" var="comanda">
 					<div class="div-mesa">
-						<button type="button" class="btn-mesa">
+						<button type="button" class="btn-mesa" onclick="window.location.href='${contextRoot}/comanda/abrir/mesa/${comanda.numeroComanda}/status/${comanda.status}/id/${comanda.id}'">
 							<div class="row">
 								<h5 class=" numero-mesa"><strong>${comanda.numeroComanda}</strong></h5>
 							</div>
@@ -35,7 +35,6 @@
 									<img class="img-responsive" id="mesa_icone" alt="mesa"
 										src="${images}/mesa.png">
 								</c:if>
-
 							</div>
 						</button>
 					</div>

@@ -93,6 +93,7 @@ public class PaginaController {
 		}
 		
 		configDAO.alterar(config);
+		
 		return "redirect:/config";	
 	}
 	
