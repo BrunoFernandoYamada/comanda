@@ -13,8 +13,8 @@
 					</div>
 					<div class="panel-body">
 						<div>
-							<form action="${contextRoot}/comanda/salvarcomanda" method="POST"
-								class="form-horizontal">
+							<sf:form action="${contextRoot}/comanda/salvarcomanda" method="POST"
+								class="form-horizontal" modelAttribute="comanda">
 
 
 								<div class="col-xs-12 form-group">
@@ -22,15 +22,16 @@
 										<label for="mesa">Mesa</label>
 									</div>
 									<div class=" col-xs-3">
-										<input name="mesa" id="mesa" class="form-control"
-											value="${numeroComanda}" disabled="disabled" />
+										<sf:input path="numeroComanda" id="mesa" cssClass="form-control"
+											 disabled="disabled" />
 									</div>
 								</div>
 
 								<div class="col-xs-12">
 									<div class="form-group col-md-3 row">
-										<label for="cliente">Cliente</label> <input name="cliente"
-											id="cliente" class="form-control" value="Venda ao Consumidor" />
+										<label for="cliente">Cliente</label> 
+										<sf:input path="cliente"
+											id="cliente" cssClass="form-control"/>
 									</div>
 								</div>
 								<!-- 
@@ -45,7 +46,7 @@
 									<input type="submit" class="btn btn-success" value="Próximo" />
 									<a href="${contextRoot}/comanda" class="btn btn-danger">Sair</a>
 								</div>
-							</form>
+							</sf:form>
 						</div>
 					</div>
 
