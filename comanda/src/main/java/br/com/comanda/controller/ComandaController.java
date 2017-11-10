@@ -10,7 +10,7 @@ import br.com.comanda.dao.ComandaDAO;
 import br.com.comanda.dto.Comanda;
 
 @Controller
-@RequestMapping("/comanda/abrir")
+@RequestMapping("/abrir")
 public class ComandaController {
 	
 	@Autowired
@@ -25,7 +25,7 @@ public class ComandaController {
 			comanda = comandaDAO.buscar(id);
 			
 			ModelAndView mv = new ModelAndView("index");
-			mv.addObject("UserClickComandaGereciamento", true);
+			mv.addObject("UserClickComandaGerenciamento", true);
 			return mv;
 			
 		}else {

@@ -47,6 +47,7 @@ public class PaginaController {
 		for (int i = 1; i <= quantidadeMesas; i++) {
 
 			Comanda comanda = new Comanda();
+			comanda.setId(Long.valueOf(0));
 			comanda.setNumeroComanda(i);
 			comanda.setStatus(false);
 
