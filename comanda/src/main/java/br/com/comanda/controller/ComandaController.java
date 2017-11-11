@@ -1,7 +1,8 @@
 package br.com.comanda.controller;
 
-import java.util.Date;
 import java.util.List;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import br.com.comanda.dao.ClienteDAO;
 import br.com.comanda.dao.ComandaDAO;
+import br.com.comanda.dao.TipoComandaDAO;
 import br.com.comanda.dto.Cliente;
 import br.com.comanda.dto.Comanda;
 import br.com.comanda.dto.TipoComanda;
@@ -27,6 +29,9 @@ public class ComandaController {
 	@Autowired
 	private ClienteDAO clienteDAO;
 	
+	@Autowired
+	private TipoComandaDAO tipoComandaDAO;
+	
 	@RequestMapping(value = {"/abrir/mesa/{numeroComanda}/status/{status}/id/{id}"})
 	public ModelAndView abrirMesa(@PathVariable("numeroComanda") int numeroComanda, @PathVariable("status")boolean status, @PathVariable("id")Long id) {
 		
@@ -36,42 +41,44 @@ public class ComandaController {
 			comanda = comandaDAO.buscar(id);
 			
 			ModelAndView mv = new ModelAndView("index");
-			mv.addObject("UserClickComandaGerenciamento", true);
+			mv.addObject("userClickComandaGerenciamento", true);
 			return mv;
 			
 		}else {
 			
 			comanda = new Comanda();
-			comanda.setHoraAbertura(new Date());
 			comanda.setNumeroComanda(numeroComanda);
 			comanda.setStatus(true);
 			
-			TipoComanda tipoComanda = new TipoComanda();
-			tipoComanda.setId(1);
-			
-			comanda.setTipo(tipoComanda);
 			
 			ModelAndView mv = new ModelAndView("index");
-			mv.addObject("UserClickComandaSalvar", true);
+			mv.addObject("userClickComandaCadastro", true);
 			mv.addObject("comanda", comanda);
+			
 			return mv;
 		}	
 		
 	}
 	
-	@RequestMapping("/salvarComanda")
-	public String salvarComanda(@ModelAttribute("comanda") Comanda comanda, BindingResult result,Model model) {
-		
+	@RequestMapping("/salvarcomanda")
+	public String salvarComanda(@Valid @ModelAttribute("comanda") Comanda comanda, BindingResult result, Model model) {
+		/*
 		if(result.hasErrors()) {
-			
 			model.addAttribute("titulo", "Configurações");
 			model.addAttribute("mensagem", "Não foi possível salvar Mesa");
-			model.addAttribute("UserClickComanda", true);
-			
-			return "index";
-			
+			model.addAttribute("userClickComanda", true);
+			return "redirect:";	
 			
 		}
+		*/
+		
+		TipoComanda tipoComanda = new TipoComanda();
+		tipoComanda.setId(1);
+		
+		comanda.setTipo(tipoComanda);
+		
+		
+		System.out.println(comanda);
 		
 		comandaDAO.adicionar(comanda);
 		
@@ -79,6 +86,7 @@ public class ComandaController {
 		
 	}
 	
+	@ModelAttribute("clientes")
 	public List<Cliente> listarClientes(){
 		
 		return clienteDAO.listar();

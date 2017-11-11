@@ -78,7 +78,7 @@ public class PaginaController {
 		ModelAndView mv = new ModelAndView("index");
 		mv.addObject("config", configDAO.buscar(1));
 		mv.addObject("titulo", "Config");
-		mv.addObject("UserClickConfig", true);
+		mv.addObject("userClickConfig", true);
 		
 		return mv;
 	}
@@ -88,7 +88,7 @@ public class PaginaController {
 		
 		if(results.hasErrors()) {
 			model.addAttribute("titulo", "Configurações");
-			model.addAttribute("UserClickConfig", true);
+			model.addAttribute("userClickConfig", true);
 		
 			return "index";
 		}

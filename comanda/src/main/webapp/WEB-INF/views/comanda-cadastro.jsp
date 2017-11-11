@@ -13,28 +13,28 @@
 					</div>
 					<div class="panel-body">
 						<div>
-							<sf:form action="${contextRoot}/comanda/salvarcomanda" method="POST"
-								class="form-horizontal" modelAttribute="comanda">
+							<sf:form action="${contextRoot}/comanda/salvarcomanda"
+								method="POST" class="form-horizontal" modelAttribute="comanda">
 
 
 								<div class="col-xs-12 form-group">
 									<div class="col-xs-12">
-										<label for="mesa">Mesa</label>
+										<label for="numeroComanda">Mesa</label>
 									</div>
 									<div class=" col-xs-3">
-										<sf:input path="numeroComanda" id="mesa" cssClass="form-control"
-											 disabled="disabled" />
+										<sf:input path="numeroComanda" id="numeroComanda"
+											cssClass="form-control"/>
 									</div>
 								</div>
-
+								<!--
 								<div class="col-xs-12">
-									<div class="form-group col-md-3 row">
-										<label for="cliente">Cliente</label> 
-										<sf:input path="cliente"
-											id="cliente" cssClass="form-control"/>
+									<div class="form-group col-xs-3 row">
+										<label for="cliente">Cliente</label>
+										<sf:select path="cliente" items="${clientes}" itemLabel="nome" cssClass="form-control" ></sf:select>
 									</div>
 								</div>
-								<!-- 
+								
+								 
 								<div class="col-xs-12">
 									<div class="form-group col-md-3 row">
 										<label for="atendente">Atendente</label> <input
@@ -42,6 +42,15 @@
 									</div>
 								</div>
 								 -->
+								<sf:hidden path="cliente"/>
+								<sf:hidden path="id" />
+								<sf:hidden path="horaAbertura" />
+								<sf:hidden path="horaFechamento" />
+								<sf:hidden path="status"/>
+								<sf:hidden path="tipo" />
+								<sf:hidden path="desconto"/>
+								<sf:hidden path="valorTotal"/>
+								 
 								<div class="col-xs-12">
 									<input type="submit" class="btn btn-success" value="Próximo" />
 									<a href="${contextRoot}/comanda" class="btn btn-danger">Sair</a>

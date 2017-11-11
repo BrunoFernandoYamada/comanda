@@ -49,15 +49,15 @@
 			<%@include file="comanda.jsp" %>
 		</c:if>
 		
-		<c:if test="${UserClickConfig == true}">
+		<c:if test="${userClickConfig == true}">
 			<%@include file="config.jsp" %>
 		</c:if>
 
-		<c:if test="${UserClickComandaGerenciamento == true}">
+		<c:if test="${userClickComandaGerenciamento == true}">
 			<%@include file="comanda-gerenciamento.jsp" %>
 		</c:if>
 		
-		<c:if test="${UserClickComandaCadastro == true}">
+		<c:if test="${userClickComandaCadastro == true}">
 			<%@include file="comanda-cadastro.jsp" %>
 		</c:if>
 
