@@ -30,7 +30,7 @@
 								<div class="col-xs-12">
 									<div class="form-group col-xs-3 row">
 										<label for="cliente">Cliente</label>
-										<sf:select path="cliente" items="${clientes}" itemLabel="nome" cssClass="form-control" itemValue="cliente"></sf:select>
+										<sf:select path="cliente" items="${clientes}" itemLabel="nome" cssClass="form-control" itemValue="id"></sf:select>
 									</div>
 								</div>
 								<!-- 

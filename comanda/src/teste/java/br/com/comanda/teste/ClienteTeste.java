@@ -26,7 +26,7 @@ public class ClienteTeste {
 		
 		clienteDAO = (ClienteDAO) context.getBean("clienteDAO");
 	}
-	/*
+	
 	@Test
 	public void adicionarClienteTeste() {
 		
@@ -47,7 +47,7 @@ public class ClienteTeste {
 		assertEquals("Cliente inserido com sucesso", true, clienteDAO.adicionar(cliente));
 		
 	}
-	
+	/*
 	
 	@Test 
 	public void buscarClinteTeste() {
@@ -84,7 +84,7 @@ public class ClienteTeste {
 		assertEquals("Clientes listados com sucesso", 1, clienteDAO.listar().size());
 		
 	}
-	*/
+	
 	
 	@Test 
 	public void buscarClinteTeste() {
@@ -93,4 +93,5 @@ public class ClienteTeste {
 		assertEquals("Cliente excluído com sucesso",true, clienteDAO.excluir(cliente));
 		
 	}
+	*/
 }

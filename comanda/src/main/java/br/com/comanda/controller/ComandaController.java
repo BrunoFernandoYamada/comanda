@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +21,7 @@ import br.com.comanda.dao.TipoComandaDAO;
 import br.com.comanda.dto.Cliente;
 import br.com.comanda.dto.Comanda;
 import br.com.comanda.dto.TipoComanda;
+import br.com.comanda.resources.ClienteEditor;
 
 @Controller
 public class ComandaController {
@@ -31,6 +34,11 @@ public class ComandaController {
 	
 	@Autowired
 	private TipoComandaDAO tipoComandaDAO;
+	
+	@InitBinder
+	protected void initBinder(WebDataBinder binder)     {
+	      binder.registerCustomEditor(Cliente.class, new ClienteEditor(clienteDAO));
+	}
 	
 	@RequestMapping(value = {"/abrir/mesa/{numeroComanda}/status/{status}/id/{id}"})
 	public ModelAndView abrirMesa(@PathVariable("numeroComanda") int numeroComanda, @PathVariable("status")boolean status, @PathVariable("id")Long id) {
@@ -62,6 +70,9 @@ public class ComandaController {
 	
 	@RequestMapping("/salvarcomanda")
 	public String salvarComanda(@Valid @ModelAttribute("comanda") Comanda comanda, BindingResult result, Model model) {
+		
+		
+		
 		/*
 		if(result.hasErrors()) {
 			model.addAttribute("titulo", "Configurações");
