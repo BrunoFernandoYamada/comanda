@@ -26,14 +26,14 @@
 											cssClass="form-control"/>
 									</div>
 								</div>
-								<!--
+								
 								<div class="col-xs-12">
 									<div class="form-group col-xs-3 row">
 										<label for="cliente">Cliente</label>
-										<sf:select path="cliente" items="${clientes}" itemLabel="nome" cssClass="form-control" ></sf:select>
+										<sf:select path="cliente" items="${clientes}" itemLabel="nome" cssClass="form-control" itemValue="cliente"></sf:select>
 									</div>
 								</div>
-								
+								<!-- 
 								 
 								<div class="col-xs-12">
 									<div class="form-group col-md-3 row">
