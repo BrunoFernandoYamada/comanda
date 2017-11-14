@@ -42,7 +42,6 @@
 									</div>
 								</div>
 								 -->
-								<sf:hidden path="cliente"/>
 								<sf:hidden path="id" />
 								<sf:hidden path="horaAbertura" />
 								<sf:hidden path="horaFechamento" />

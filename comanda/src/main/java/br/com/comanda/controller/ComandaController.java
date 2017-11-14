@@ -1,5 +1,6 @@
 package br.com.comanda.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -87,7 +88,7 @@ public class ComandaController {
 		tipoComanda.setId(1);
 		
 		comanda.setTipo(tipoComanda);
-		
+		comanda.setHoraAbertura(new Date());
 		
 		System.out.println(comanda);
 		
