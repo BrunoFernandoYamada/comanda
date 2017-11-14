@@ -26,3 +26,29 @@
 	margin-top: 0px;
 	margin-bottom: 0px;
 }
+
+.divComandaDados{
+	border: 1px solid #dddddd;
+ }
+ 
+ .btn-grupo{
+ 	width: 100%;
+ 	margin: 1px 0px 1px 0px;
+ 	white-space: normal !important;
+    word-wrap: break-word;
+   	font-size: large;
+   	padding: 5px;
+ }
+ 
+ .divBtnGrupo{
+ 	border: 1px solid #dddddd;
+ 	height: 100%;
+ 	padding-left: 0px;
+ 	padding-right: 0px;
+ 
+ }
+ 
+ .divBtnGrupoInterna{
+ 	padding-left: 0px;
+ 	padding-right: 0px;
+ }

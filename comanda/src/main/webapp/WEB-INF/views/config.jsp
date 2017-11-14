@@ -1,18 +1,19 @@
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div id='content'>
 	<div class="container">
 		<div class="row">
 			<c:if test="${not empty mensagem}">
 				<div class="col-xs-12">
-				<div class="alert alert-success alert-dismissible">
-					<button type="button" class="close" data-dismiss="alert">&times;</button>
-					${mensagem}
+					<div class="alert alert-success alert-dismissible">
+						<button type="button" class="close" data-dismiss="alert">&times;</button>
+						${mensagem}
+					</div>
+
 				</div>
 
-			</div>
-						
 			</c:if>
-		
+
 		</div>
 		<div class="row">
 			<div class="panel panel-primary">
@@ -32,14 +33,14 @@
 							<div class="col-xs-12">
 								<div class="form-group col-md-3 row">
 									<label for="qunatComanda">Quantidade de Mesas</label>
-									<sf:input  path="quantComanda" id="quantComanda"
+									<sf:input path="quantComanda" id="quantComanda"
 										cssClass="form-control" />
 								</div>
 							</div>
 							<div class="col-xs-12">
 								<div class="form-group col-md-3 row">
 									<label for="qunatDelivey">Qtd. de Deliverys</label>
-									<sf:input  path="quantDelivey" id="quantDelivey"
+									<sf:input path="quantDelivey" id="quantDelivey"
 										cssClass="form-control" />
 								</div>
 							</div>

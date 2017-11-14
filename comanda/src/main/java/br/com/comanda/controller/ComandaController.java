@@ -18,9 +18,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import br.com.comanda.dao.ClienteDAO;
 import br.com.comanda.dao.ComandaDAO;
+import br.com.comanda.dao.GrupoDAO;
 import br.com.comanda.dao.TipoComandaDAO;
 import br.com.comanda.dto.Cliente;
 import br.com.comanda.dto.Comanda;
+import br.com.comanda.dto.Grupo;
 import br.com.comanda.dto.TipoComanda;
 import br.com.comanda.resources.ClienteEditor;
 
@@ -36,6 +38,9 @@ public class ComandaController {
 	@Autowired
 	private TipoComandaDAO tipoComandaDAO;
 	
+	@Autowired
+	private GrupoDAO grupoDAO;
+	
 	@InitBinder
 	protected void initBinder(WebDataBinder binder)     {
 	      binder.registerCustomEditor(Cliente.class, new ClienteEditor(clienteDAO));
@@ -50,6 +55,9 @@ public class ComandaController {
 			comanda = comandaDAO.buscar(id);
 			
 			ModelAndView mv = new ModelAndView("index");
+			mv.addObject("comanda", comanda);
+			mv.addObject("grupos", grupoDAO.listar());
+			mv.addObject("titulo", "Gerenciamento de Comanda");
 			mv.addObject("userClickComandaGerenciamento", true);
 			return mv;
 			
@@ -61,6 +69,7 @@ public class ComandaController {
 			
 			
 			ModelAndView mv = new ModelAndView("index");
+			mv.addObject("titulo", "Cadastro de Comanda");
 			mv.addObject("userClickComandaCadastro", true);
 			mv.addObject("comanda", comanda);
 			
@@ -83,6 +92,7 @@ public class ComandaController {
 			
 		}
 		*/
+		model.addAttribute("titulo", "Gerenciamento de Comanda");
 		
 		TipoComanda tipoComanda = new TipoComanda();
 		tipoComanda.setId(1);
