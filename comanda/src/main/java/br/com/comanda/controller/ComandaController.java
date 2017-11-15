@@ -66,6 +66,8 @@ public class ComandaController {
 			comanda = new Comanda();
 			comanda.setNumeroComanda(numeroComanda);
 			comanda.setStatus(true);
+			comanda.setValorTotal(0.00);
+			comanda.setDesconto(0.00);
 			
 			
 			ModelAndView mv = new ModelAndView("index");
