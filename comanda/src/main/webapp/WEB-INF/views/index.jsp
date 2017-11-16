@@ -59,7 +59,10 @@
 		<c:if test="${userClickComandaCadastro == true}">
 			<%@include file="comanda-cadastro.jsp"%>
 		</c:if>
-
+		
+		<c:if test="${userClickGerirProduto == true}">
+			<%@include file="produto-cadastro.jsp"%>
+		</c:if>
 
 		<!-- End of Content  -->
 
