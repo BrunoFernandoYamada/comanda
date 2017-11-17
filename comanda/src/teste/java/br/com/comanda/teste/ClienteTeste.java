@@ -32,16 +32,16 @@ public class ClienteTeste {
 		
 		cliente = new Cliente();
 		cliente.setNome("Venda ao consumidor");
-		cliente.setBairro("Jardim Matilde");
-		cliente.setCel("014996208270");
-		cliente.setCidade("Ourinhos");
-		cliente.setCpfCnpj("34256776565");
+		cliente.setBairro("");
+		cliente.setCel("");
+		cliente.setCidade("");
+		cliente.setCpfCnpj("");
 		cliente.setDataCadastro(new Date());
 		cliente.setDataNascimento(new Date());
-		cliente.setLogradouro("Rua Sem nome");
-		cliente.setNumeroCasa("428");
-		cliente.setRgIe("34546456123");
-		cliente.setTel("123234345");
+		cliente.setLogradouro("");
+		cliente.setNumeroCasa("");
+		cliente.setRgIe("");
+		cliente.setTel("");
 		cliente.setTipoPessoa('f');
 		
 		assertEquals("Cliente inserido com sucesso", true, clienteDAO.adicionar(cliente));
