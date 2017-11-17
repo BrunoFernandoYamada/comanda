@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -50,14 +51,16 @@ public class ClienteController {
 	}
 	
 	@RequestMapping(value="/cadastrar", method = RequestMethod.POST)
-	public String salvarCliente(@Valid @ModelAttribute("cliente") Cliente cliente,BindingResult result ) {
+	public String salvarCliente(@Valid @ModelAttribute("cliente") Cliente cliente,BindingResult result,Model model) {
 	
 		if(result.hasErrors()) {
-			/*
+			
 			ModelAndView mv = new ModelAndView();
-			mv.addObject("titulo", "Gerenciamento de Cliente");
-			mv.addObject("userClickGerirCliente", true);
-			*/
+			model.addAttribute("titulo", "Gerenciamento de Cliente");
+			model.addAttribute("userClickGerirCliente", true);
+			
+			return ("index");
+			
 		}
 		
 		clienteDAO.adicionar(cliente);

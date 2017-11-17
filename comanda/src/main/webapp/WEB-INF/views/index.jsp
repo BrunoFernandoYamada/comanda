@@ -63,6 +63,12 @@
 		<c:if test="${userClickGerirProduto == true}">
 			<%@include file="produto-cadastro.jsp"%>
 		</c:if>
+		
+		<c:if test="${userClickGerirCliente == true}">
+			<%@include file="cliente-cadastro.jsp"%>
+		</c:if>
+		
+		userClickGerirCliente
 
 		<!-- End of Content  -->
 
