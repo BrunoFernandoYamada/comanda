@@ -18,7 +18,7 @@
 		<div class="row">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<h3>Configurações</h3>
+					<i class="fa fa-gear" aria-hidden="true"></i> <strong> Configurações </strong>
 				</div>
 				<div class="panel-body">
 					<div>

@@ -7,7 +7,7 @@
 <spring:url var="js" value="/resources/js"></spring:url>
 <spring:url var="images" value="/resources/images"></spring:url>
 
-<c:set var="contexRoot" value="${pageContex.request.contextPath }"></c:set>
+<c:set var="contexRoot" value="${pageContext.request.contextPath }"></c:set>
 
 <!DOCTYPE html>
 
@@ -68,7 +68,13 @@
 			<%@include file="cliente-cadastro.jsp"%>
 		</c:if>
 		
-		userClickGerirCliente
+		<c:if test="${userClickGerirGrupo == true}">
+			<%@include file="grupo-cadastro.jsp"%>
+		</c:if>
+		
+		<c:if test="${userClickGerirLocalizacao == true}">
+			<%@include file="localizacao-cadastro.jsp"%>
+		</c:if>
 
 		<!-- End of Content  -->
 
@@ -83,6 +89,7 @@
 	<script src="${js}/jquery-ui.min.js" type="text/javascript"></script>
 	<script src="${js}/modernizr.min.js" type="text/javascript"></script>
 	<script src="${js}/application.js" type="text/javascript"></script>
+	<script src="${js}/pessoal.js" type="text/javascript"></script>
 	<!-- Google Analytics -->
 
 </body>

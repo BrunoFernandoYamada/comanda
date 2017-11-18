@@ -3,7 +3,7 @@
 <div id='content'>
 	<div class='panel panel-default'>
 		<div class='panel-heading'>
-			<i class="fa fa-file-text-o" aria-hidden="true"></i> Gerenciamento de Comandas
+			<i class="fa fa-file-text-o" aria-hidden="true"></i> <strong> Gerenciamento de Comandas</strong>
 			<div class='panel-tools'>
 				<div class='btn-group'>
 					<a class='btn' href='#'> <i class='icon-refresh'></i> Refresh

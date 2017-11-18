@@ -6,11 +6,11 @@ import java.text.ParseException;
 import java.util.Date;
 
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 public class DataNascimentoEditor extends PropertyEditorSupport {
-	  private static final Logger LOG =
-	            Logger.getLogger(DataNascimentoEditor.class);
+	  private static final Logger LOG = LoggerFactory.getLogger(DataNascimentoEditor.class);
 
 	    private final DateFormat dateFormat;
 
@@ -24,7 +24,7 @@ public class DataNascimentoEditor extends PropertyEditorSupport {
 	            Date date = (Date) dateFormat.parseObject(text);
 	            setValue(date);
 	        } catch (ParseException e) {
-	            LOG.fatal("error setting date for String: " + text, e);
+	            LOG.error("error setting date for String: " + text, e);
 	        }
 	    }
 

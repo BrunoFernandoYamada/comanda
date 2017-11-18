@@ -20,8 +20,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.comanda.dao.ClienteDAO;
-import br.com.comanda.dto.Cliente;
+import br.com.comanda.dao.GrupoDAO;
+import br.com.comanda.dto.Grupo;
 import br.com.comanda.resources.DataNascimentoEditor;
 
 /**
@@ -30,56 +30,48 @@ import br.com.comanda.resources.DataNascimentoEditor;
  *	
  */
 @Controller
-@RequestMapping("/cliente")
-public class ClienteController {
+@RequestMapping("/grupo")
+public class GrupoController {
 	
 	@Autowired
-	private ClienteDAO clienteDAO;
-	
-	@InitBinder
-	protected void initBinder(WebDataBinder binder)     {
-	      binder.registerCustomEditor(Date.class, new DataNascimentoEditor(new SimpleDateFormat("dd/MM/yyyy")));
-	}
+	private GrupoDAO grupoDAO;
 	
 	@RequestMapping(value="/cadastrar", method = RequestMethod.GET)
-	public ModelAndView gerirCliente(@RequestParam(name = "operation", required = false) String operation) {
+	public ModelAndView gerirGrupo(@RequestParam(name = "operation", required = false) String operation) {
 	
 		ModelAndView mv = new ModelAndView("index");
-		mv.addObject("titulo", "Gerenciamento de Cliente");
-		mv.addObject("userClickGerirCliente", true);
+		mv.addObject("titulo", "Gerenciamento de Grupo");
+		mv.addObject("userClickGerirGrupo", true);
 		
 		if (operation != null) {
-			if (operation.equals("cliente")) {
-				mv.addObject("mensagem", "O Cliente foi salvo com sucesso!");
+			if (operation.equals("grupo")) {
+				mv.addObject("mensagem", "O Grupo foi salvo com sucesso!");
 			}
 		}
 		
-		Cliente cliente = new Cliente();
+		Grupo grupo = new Grupo();
 		
-		mv.addObject("cliente", cliente);
+		mv.addObject("grupo", grupo);
 		
 		return mv;
 				
 	}
 	
 	@RequestMapping(value="/cadastrar", method = RequestMethod.POST)
-	public String salvarCliente(@Valid @ModelAttribute("cliente") Cliente cliente,BindingResult result,Model model) {
+	public String salvarGrupo(@Valid @ModelAttribute("grupo") Grupo grupo,BindingResult result,Model model) {
 	
 		if(result.hasErrors()) {
 			
-			model.addAttribute("titulo", "Gerenciamento de Cliente");
-			model.addAttribute("userClickGerirCliente", true);
+			model.addAttribute("titulo", "Gerenciamento de Grupo");
+			model.addAttribute("userClickGerirGrupo", true);
 			
 			return ("index");
 			
 		}
-		if(cliente.getCpfCnpj() == "") {
-			cliente.setCpfCnpj(null);
-		}
 		
-		clienteDAO.adicionar(cliente);
+		grupoDAO.adicionar(grupo);
 		
-		return "redirect:/cliente/cadastrar?operation=cliente";
+		return "redirect:/grupo/cadastrar?operation=grupo";
 				
 	}
 }
