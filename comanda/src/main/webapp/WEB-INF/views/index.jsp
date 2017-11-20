@@ -20,7 +20,8 @@
 <meta content='' name='description'>
 <meta content='' name='keywords'>
 <link href="${css}/application.css" rel="stylesheet" type="text/css" />
-<link href="${css}/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="${css}/font-awesome.min.css" rel="stylesheet"
+	type="text/css" />
 <link href="${images}/favicon.ico" rel="icon" type="image/ico" />
 <link href="${css}/font-awesome.css" rel="stylesheet" type="text/css" />
 <link href="${css}/pessoal.css" rel="stylesheet" type="text/css" />
@@ -59,19 +60,19 @@
 		<c:if test="${userClickComandaCadastro == true}">
 			<%@include file="comanda-cadastro.jsp"%>
 		</c:if>
-		
+
 		<c:if test="${userClickGerirProduto == true}">
 			<%@include file="produto-cadastro.jsp"%>
 		</c:if>
-		
+
 		<c:if test="${userClickGerirCliente == true}">
 			<%@include file="cliente-cadastro.jsp"%>
 		</c:if>
-		
+
 		<c:if test="${userClickGerirGrupo == true}">
 			<%@include file="grupo-cadastro.jsp"%>
 		</c:if>
-		
+
 		<c:if test="${userClickGerirLocalizacao == true}">
 			<%@include file="localizacao-cadastro.jsp"%>
 		</c:if>
@@ -90,6 +91,8 @@
 	<script src="${js}/modernizr.min.js" type="text/javascript"></script>
 	<script src="${js}/application.js" type="text/javascript"></script>
 	<script src="${js}/pessoal.js" type="text/javascript"></script>
+	<script src="${js}/mascara-data.js" type="text/javascript"></script>
+
 	<!-- Google Analytics -->
 
 </body>

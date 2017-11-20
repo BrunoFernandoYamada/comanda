@@ -58,7 +58,7 @@
 				<div class="form-group col-xs-4">
 					<label for="dataNascimento">Data de Nascimento</label>
 					<sf:input path="dataNascimento" id="dataNascimento"
-						cssClass="form-control" />
+						cssClass="form-control" onkeypress="mascaraData(this)" />
 				</div>
 
 				<div class="form-group col-xs-4">
