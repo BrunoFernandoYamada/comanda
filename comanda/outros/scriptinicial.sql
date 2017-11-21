@@ -1,6 +1,6 @@
-insert into comanda (id,nome) values (1,'Comanda');
-insert into comanda (id,nome) values (2,'Delivery');
-insert into comanda (id,nome) values (3,'Fast Sell');
+insert into TipoComanda (id,nome) values (1,'Comanda');
+insert into TipoComanda (id,nome) values (2,'Delivery');
+insert into tipoComanda (id,nome) values (3,'Fast Sell');
 
 insert into cliente (id, nome, Bairro, cel, cidade, cpfCnpj , dataCadastro, dataNascimento, logradouro, numerocasa,rgie, tel,tipoPessoa) 
              values (1,'Venda ao consumidor', ' ', ' ', ' ', ' ',null, null, ' ', ' ', ' ', ' ', 'f');

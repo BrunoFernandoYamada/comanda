@@ -29,6 +29,7 @@ import br.com.comanda.dto.Produto;
 import br.com.comanda.resources.GrupoEditor;
 import br.com.comanda.resources.LocalizacaoEditor;
 import br.com.comanda.util.FileUploadUtility;
+import br.com.comanda.util.ParseDoubleToDecimalUtility;
 
 /**
  * @author Bruno Fernando Yamada 16 de nov de 2017
@@ -65,7 +66,7 @@ public class ProdutoController {
 				mv.addObject("mensagem", "O Produto foi salvo com sucesso!");
 			}
 		}
-
+		
 		Produto produto = new Produto();
 		mv.addObject("produto", produto);
 
@@ -92,6 +93,8 @@ public class ProdutoController {
 			FileUploadUtility.uploadFile(request, produto.getFile(), produto.getImagemUrl());
 		}
 		
+		ParseDoubleToDecimalUtility pd = new ParseDoubleToDecimalUtility();
+				
 		System.out.println("VALOR DO PRODUTO::::::::::::::::::: " + produto.getPreco());
 		
 		produtoDAO.adicionar(produto);
