@@ -1,6 +1,16 @@
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 <div id='content'>
+	<c:if test="${not empty mensagem}">
+		<div class="col-xs-12">
+			<div class="alert alert-success alert-dismissible">
+
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+
+				${mensagem}
+			</div>
+		</div>
+	</c:if>
 	<div class='panel panel-default'>
 		<div class='panel-heading'>
 			<i class="fa fa-product-hunt" aria-hidden="true"></i> <strong>
@@ -16,9 +26,9 @@
 			</div>
 		</div>
 
-		<sf:form action="${contextRoot}/produto/cadastrar" method="POST"
-			modelAttribute="produto" enctype="multpart/form-data">
-			
+		<sf:form action="${contextRoot}/comanda/produto/cadastrar" method="POST"
+			modelAttribute="produto" enctype="multipart/form-data">
+
 			<!--  Painel Central -->
 			<div class='panel-body'>
 
@@ -33,15 +43,15 @@
 				</div>
 				<div class="form-group col-xs-4">
 					<label for="preco">Preço</label>
-					<sf:input path="preco" id="preco" cssClass="form-control moeda" />
+					<sf:input path="preco" id="preco" cssClass="form-control" />
 				</div>
-				
+
 				<div class="form-group col-xs-4">
 					<label for="grupo">Grupo</label>
 					<sf:select items="${grupos}" itemLabel="nome" itemValue="id"
 						path="grupo" id="grupo" cssClass="form-control" />
 				</div>
-				
+
 				<div class="form-group col-xs-4">
 					<label for="localizacao">Localização</label>
 					<sf:select items="${localizacoes}" itemLabel="nome" itemValue="id"
@@ -75,3 +85,6 @@
 		</sf:form>
 	</div>
 </div>
+
+
+

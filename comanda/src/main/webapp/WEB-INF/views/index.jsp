@@ -92,8 +92,22 @@
 	<script src="${js}/application.js" type="text/javascript"></script>
 	<script src="${js}/pessoal.js" type="text/javascript"></script>
 	<script src="${js}/mascara-data.js" type="text/javascript"></script>
-
+	<script src="${js}/jquery.maskMoney.js" type="text/javascript"></script>
 	<!-- Google Analytics -->
+	
+	<script type="text/javascript">
+	$(function() {
+		$("#preco").maskMoney({
+			symbol : 'R$ ',
+			showSymbol : true,
+			thousands : '.',
+			decimal : '.',
+			symbolStay : false,
+			precision: 2
+			
+		});
+	})
+</script>
 
 </body>
 </html>
