@@ -22,10 +22,11 @@ $(function(){
 			json.forEach(function(val) {
 				  var keys = Object.keys(val);
 				  html += "<div class = 'itemProduto'>";
-				  html += "<img src='"+window.contextRoot + "/comanda/resources/images/"+ val.imagemUrl+"' class='imgItemProduto img-responsive'>";
-				  html += "<div class='textoItemProduto'><h5>"+ val.nome +"</h5></div>"
+				  html += "<button type='button' class='btn-itemProduto'>";
+				  html += "<img src='"+window.contextRoot + "/comanda/resources/images/"+ val.imagemUrl+"' class='imgItemProduto'>";
+				  html += "<div class='textoItemProduto'><h5><strong>"+ val.nome +"</strong></h5></div>"
 				  
-			
+				  html += "</button>"
 				  html += "</div>";
 				});
 			
