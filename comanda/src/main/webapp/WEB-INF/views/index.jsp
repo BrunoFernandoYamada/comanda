@@ -26,6 +26,10 @@
 <link href="${css}/font-awesome.css" rel="stylesheet" type="text/css" />
 <link href="${css}/pessoal.css" rel="stylesheet" type="text/css" />
 
+<script>
+	window.contextRoot = '${contextRoot}';
+</script>
+
 </head>
 <body class='main page'>
 

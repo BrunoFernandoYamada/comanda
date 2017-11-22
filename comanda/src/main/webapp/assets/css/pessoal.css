@@ -53,4 +53,26 @@
  	padding-right: 0px;
  }
  
+ .itemProduto{
+	margin: 1px 0px 1px 0px;
+	display: inline-block;
+	text-align: center;
+	border: 1px solid #dddddd;
+	align-items: center;
+	word-wrap: break-word;
+	
+ }
+ 
+ .imgItemProduto{
+ 	width: 110px;
+	height: 100px;
+	margin: 2px;
+ }
+ 
+ .textoItemProduto{
+ 	width: 110px;
+ 	height: 30px;
+ }
+ 
+ 
  

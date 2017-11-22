@@ -22,15 +22,13 @@
 		<div class="col-xs-2 divBtnGrupo">
 
 			<c:forEach items="${grupos}" var="grupo">
-				<div class="col-xs-12 divBtnGrupoInterna">
-					<a href="#" class="btn btn-success btn-grupo"><h4>${grupo.nome}</h4></a>
+				<div class="col-xs-12 divBtnGrupoInterna"">
+					<a class="btn btn-success btn-grupo" id="${grupo.id}"><h4>${grupo.nome}</h4></a>
 				</div>
 			</c:forEach>
 
 		</div>
-		<div class="col-xs-10 divComandaDados">
-		
-		
+		<div class="col-xs-10 divGrupoItens">
 		
 		
 		</div>

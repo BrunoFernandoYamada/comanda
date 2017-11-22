@@ -94,19 +94,16 @@ public class ComandaController {
 			
 		}
 		*/
-		model.addAttribute("titulo", "Gerenciamento de Comanda");
 		
 		TipoComanda tipoComanda = new TipoComanda();
 		tipoComanda.setId(1);
 		
 		comanda.setTipo(tipoComanda);
 		comanda.setHoraAbertura(new Date());
-		
-		System.out.println(comanda);
-		
+	
 		comandaDAO.adicionar(comanda);
 		
-		return "redirect:/abrir/mesa/" + comanda.getNumeroComanda() + "/status/ " + comanda.getStatus() + " /id/ " + comanda.getId();
+		return "redirect:/abrir/mesa/"+comanda.getNumeroComanda()+"/status/"+comanda.getStatus()+"/id/"+comanda.getId();
 		
 	}
 	

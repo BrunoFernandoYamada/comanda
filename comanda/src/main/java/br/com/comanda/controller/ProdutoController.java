@@ -93,10 +93,6 @@ public class ProdutoController {
 			FileUploadUtility.uploadFile(request, produto.getFile(), produto.getImagemUrl());
 		}
 		
-		ParseDoubleToDecimalUtility pd = new ParseDoubleToDecimalUtility();
-				
-		System.out.println("VALOR DO PRODUTO::::::::::::::::::: " + produto.getPreco());
-		
 		produtoDAO.adicionar(produto);
 		
 		
