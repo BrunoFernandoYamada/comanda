@@ -36,7 +36,7 @@ public class ComandaTeste {
 		tipoComanda = tipoComandaDAO.buscar(Integer.valueOf(1));
 
 		comanda = new Comanda();
-		comanda.setNumeroComanda(17);
+		comanda.setNumeroComanda(18);
 		comanda.setStatus(true);
 		comanda.setTipo(tipoComanda);
 

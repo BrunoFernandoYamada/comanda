@@ -11,5 +11,6 @@ public interface ProdutoDAO {
 	boolean excluir(Produto produto);
 	boolean alterar(Produto produto);
 	List<Produto> listar();
+	List<Produto> listarProdutoPorGrupo(int id);
 	
 }

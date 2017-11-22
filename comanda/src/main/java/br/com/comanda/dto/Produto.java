@@ -7,8 +7,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Produto {
@@ -21,6 +25,19 @@ public class Produto {
 	private Double preco;
 	private Localizacao localizacao;
 	private int quantidadeEstoque;
+	
+	private MultipartFile file;
+	
+	@JsonIgnore
+	@Transient
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+	
 	
 	@Id
 	@GeneratedValue(generator="inc")
@@ -37,6 +54,8 @@ public class Produto {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	
+	@JsonIgnore
 	public String getCodigoBarra() {
 		return codigoBarra;
 	}
@@ -44,6 +63,7 @@ public class Produto {
 		this.codigoBarra = codigoBarra;
 	}
 	
+	@JsonIgnore
 	@OneToOne(fetch=FetchType.EAGER)
 	@JoinColumn(nullable=true,unique=false)
 	public Grupo getGrupo() {

@@ -60,4 +60,14 @@ public class ProdutoIDAOImpl implements ProdutoDAO {
 		return query.getResultList(); 
 	}
 
+	
+	@Override
+	public List<Produto> listarProdutoPorGrupo(int id) {
+		
+		String selectAllPorGrupo = "FROM Produto WHERE grupo_id = :grupo";
+		Query query = sessionFactory.getCurrentSession().createQuery(selectAllPorGrupo);
+		query.setParameter("grupo", id);
+		return query.getResultList();
+	}
+
 }

@@ -1,5 +1,5 @@
    <div class='navbar navbar-default' id='navbar'>
-      <a class='navbar-brand' href='#'>
+      <a id="eventg" class='navbar-brand' href='#'>
         <i class="fa fa-file-text-o" aria-hidden="true"></i>
         Comanda
       </a>
