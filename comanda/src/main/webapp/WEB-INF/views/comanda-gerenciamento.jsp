@@ -45,13 +45,13 @@
 				<table class="table table-striped table-bordered">
 					<thead></thead>
 					<tbody>
-						<c:forEach items="${listItens}" var="item">
+						<c:forEach items="${listaItens}" var="item">
 							
 							<tr>
-								<th>item: </th><th>"${item.produto.name}"</th>	
+								<th>item: </th><th>"${item.produto.nome}"</th>	
 							</tr>
 							<tr>
-								<th>Qtd: </th><th>"${item.quantidade} X ${item.produto.unitPreco} = ${item.valotToral}" </th> 
+								<th>Qtd: </th><th>"${item.quantidade} X ${item.produto.preco} = ${item.valorToral}" </th> 
 							</tr>
 											
 						</c:forEach>
@@ -62,7 +62,7 @@
 						</tr>
 					</tfoot>
 				</table>
-
+					
 
 			</div>
 
@@ -71,3 +71,6 @@
 
 	</div>
 </div>
+<script>
+	window.comanda = '${comanda.id}';
+</script>

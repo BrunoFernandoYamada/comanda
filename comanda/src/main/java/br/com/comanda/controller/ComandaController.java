@@ -113,13 +113,12 @@ public class ComandaController {
 
 	}
 
-	@RequestMapping(value = { "/adicionar/item/comanda/{id}/produto/{prodduto_id}/quantidade/{qtd}" })
+	@RequestMapping(value = { "/adicionar/item/comanda/{id}/produto/{produto_id}/quantidade/{qtd}" })
 	public String adicionarItem(@PathVariable("id") Long id,@PathVariable("produto_id") Long produto_id, @PathVariable("qtd") int qtd, Model model) {
 
 		Comanda comanda = comandaDAO.buscar(id);
 		Produto produto = produtoDAO.buscar(produto_id);
 		
-		try {
 		
 		
 		ItemComanda itemComanda = new ItemComanda();
@@ -134,13 +133,8 @@ public class ComandaController {
 		comanda.setValorTotal(comanda.getValorTotal() + itemComanda.getValorToral());
 		
 		comandaDAO.alterar(comanda);
-		}catch (Exception e) {
-			
-			model.addAttribute("mensagem", "Não foid possivel adicionar item!");
-			
-		}
-
-		return "redirect:/comanda/abrir/mesa/"+comanda.getNumeroComanda()+"/status/"+comanda.getStatus()+"/id/"+comanda.getId();
+	
+		return "redirect:/abrir/mesa/"+comanda.getNumeroComanda()+"/status/"+comanda.getStatus()+"/id/"+comanda.getId();
 	}
 
 	@ModelAttribute("clientes")
