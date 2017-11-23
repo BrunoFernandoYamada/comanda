@@ -102,7 +102,8 @@ public class ComandaController {
 
 		TipoComanda tipoComanda = new TipoComanda();
 		tipoComanda.setId(1);
-
+		comanda.setValorTotal(0.0);
+		comanda.setDesconto(0.0);
 		comanda.setTipo(tipoComanda);
 		comanda.setHoraAbertura(new Date());
 
@@ -133,8 +134,7 @@ public class ComandaController {
 		comanda.setValorTotal(comanda.getValorTotal() + itemComanda.getValorToral());
 		
 		comandaDAO.alterar(comanda);
-	
-		return "redirect:/abrir/mesa/"+comanda.getNumeroComanda()+"/status/"+comanda.getStatus()+"/id/"+comanda.getId();
+		return "redirect:/abrir/mesa/"+comanda.getNumeroComanda()+"/status/"+comanda.getStatus()+"/id/"+comanda.getId();	
 	}
 
 	@ModelAttribute("clientes")
