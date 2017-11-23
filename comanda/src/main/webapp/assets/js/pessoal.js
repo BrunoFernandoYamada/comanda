@@ -25,7 +25,7 @@ $(function(){
 				  html += "<button type='button' class='btn-itemProduto'>";
 				  html += "<img src='"+window.contextRoot + "/comanda/resources/images/"+ val.imagemUrl+"' class='imgItemProduto'>";
 				  html += "<div class='textoItemProduto'><h5><strong>"+ val.nome +"</strong></h5></div>"
-				  
+			
 				  html += "</button>"
 				  html += "</div>";
 				});
@@ -35,11 +35,14 @@ $(function(){
 			
 		});
 		
-		//  $('.divGrupoItens').load(window.contextRoot + "/comanda/json/data/listarProdutoPorGrupo/"+ $id);
-		
-		
-		
-		
 	});
 
 });
+
+
+
+
+
+
+
+

@@ -113,7 +113,7 @@ public class ComandaController {
 
 	}
 
-	@RequestMapping(value = { "/adicionar/item/comanda/{id}/produto/{prodduto_id}/quantidade/{qtd}" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/adicionar/item/comanda/{id}/produto/{prodduto_id}/quantidade/{qtd}" })
 	public String adicionarItem(@PathVariable("id") Long id,@PathVariable("produto_id") Long produto_id, @PathVariable("qtd") int qtd, Model model) {
 
 		Comanda comanda = comandaDAO.buscar(id);

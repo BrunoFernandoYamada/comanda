@@ -35,20 +35,37 @@
 
 		</div>
 		<div class="col-xs-3 divListaItens">
-			
+
 			<div class="col-xs-12">
-				<label for="item-qtd">Quantidade</label>
-				<input id="item-qtd" type="number" min="1" class="form-control" value="1">
+				<label for="item-qtd">Quantidade</label> <input id="item-qtd"
+					type="number" min="1" class="form-control" value="1">
 			</div>
 			<div class="col-xs-12">
-				<c:forEach items="${listItens}" var="item">
-					<div class="item-adicionado">
-						<p>item</p>
-					
-					</div>
-				</c:forEach>
+
+				<table class="table table-striped table-bordered">
+					<thead></thead>
+					<tbody>
+						<c:forEach items="${listItens}" var="item">
+							
+							<tr>
+								<th>item: </th><th>"${item.produto.name}"</th>	
+							</tr>
+							<tr>
+								<th>Qtd: </th><th>"${item.quantidade} X ${item.produto.unitPreco} = ${item.valotToral}" </th> 
+							</tr>
+											
+						</c:forEach>
+					</tbody>
+					<tfoot>
+						<tr>
+							<th>Total </th><th>${comanda.valorTotal}</th>
+						</tr>
+					</tfoot>
+				</table>
+
+
 			</div>
-		
+
 		</div>
 
 
