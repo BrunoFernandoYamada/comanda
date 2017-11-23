@@ -1,4 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 <div id='content'>
 	<div class="row divComandaDados">
 		<div class="col-xs-12">
@@ -28,10 +29,28 @@
 			</c:forEach>
 
 		</div>
-		<div class="col-xs-10 divGrupoItens">
-		
+		<div class="col-xs-7 divGrupoItens">
+
+			<!-- Aqui são carregados os Produtos de cada grupo clicado -->
+
+		</div>
+		<div class="col-xs-3 divListaItens">
+			
+			<div class="col-xs-12">
+				<label for="item-qtd">Quantidade</label>
+				<input id="item-qtd" type="number" min="1" class="form-control" value="1">
+			</div>
+			<div class="col-xs-12">
+				<c:forEach items="${listItens}" var="item">
+					<div class="item-adicionado">
+						<p>item</p>
+					
+					</div>
+				</c:forEach>
+			</div>
 		
 		</div>
+
 
 	</div>
 </div>
