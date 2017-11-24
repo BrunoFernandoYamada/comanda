@@ -48,17 +48,16 @@
 						<c:forEach items="${listaItens}" var="item">
 							
 							<tr>
-								<th>item: </th><th>"${item.produto.nome}"</th>	
+								<th><p>item -------------- ${item.produto.nome}<br/>
+										Qtd  --------------- ${item.quantidade}   X   ${item.produto.preco}   =   ${item.valorToral}</p></th> 	
 							</tr>
-							<tr>
-								<th>Qtd: </th><th>"${item.quantidade} X ${item.produto.preco} = ${item.valorToral}" </th> 
-							</tr>
+							
 											
 						</c:forEach>
 					</tbody>
 					<tfoot>
 						<tr>
-							<th>Total </th><th>${comanda.valorTotal}</th>
+							<th>Total -------------- R$ ${comanda.valorTotal}</th>
 						</tr>
 					</tfoot>
 				</table>

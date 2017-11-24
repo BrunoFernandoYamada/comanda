@@ -23,8 +23,8 @@ $(function(){
 			json.forEach(function(val) {
 				  var keys = Object.keys(val);
 				  html += "<div class = 'itemProduto'>";
-				  html += "<a class='btn btn-itemProduto' href='"+window.contextRoot+"/comanda/adicionar/item/comanda/" +window.comanda+ "/produto/"+val.id+"/quantidade/1'>";
-				  html += "<img src='"+window.contextRoot + "/comanda/resources/images/"+ val.imagemUrl+"' class='imgItemProduto'>";
+				  html += "<a class='btn btn-default btn-itemProduto' href='"+window.contextRoot+"/comanda/adicionar/item/comanda/" +window.comanda+ "/produto/"+val.id+"/quantidade/1'>";
+				  html += "<img src='"+window.contextRoot+"/comanda/resources/images/"+ val.imagemUrl+"' class='imgItemProduto'>";
 				  html += "<div class='textoItemProduto'><h5><strong>"+ val.nome +"</strong></h5></div>"
 			
 				  html += "</a>"
