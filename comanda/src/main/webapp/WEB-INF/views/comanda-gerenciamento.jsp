@@ -5,16 +5,17 @@
 		<div class="col-xs-12">
 			<div class="col-xs-2 form-group">
 				<label for="mesa">Mesa</label> <input id="mesa" name="mesa"
-					value="${comanda.numeroComanda}" class="form-control">
+					value="${comanda.numeroComanda}" class="form-control" disabled="disabled">
 			</div>
 			<div class="col-xs-4 form-group">
-				<label for="desconto">Desconto</label> <input id="desconto"
-					name="desconto" value="${comanda.desconto}" class="form-control">
+				<label for="desconto">Desconto</label> 
+				<input id="desconto"
+					name="desconto" value="${comanda.desconto}" class="preco form-control" disabled="disabled">
 			</div>
 			<div class="col-xs-4 form-group">
 				<label for="valorTotal">Valor Total</label> <input id="valorTotal"
 					name="valorTotal" value="${comanda.valorTotal}"
-					class="form-control">
+					class="preco form-control" disabled="disabled">
 			</div>
 		</div>
 	</div>

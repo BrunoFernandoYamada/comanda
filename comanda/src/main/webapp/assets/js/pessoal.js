@@ -23,7 +23,7 @@ $(function(){
 			json.forEach(function(val) {
 				  var keys = Object.keys(val);
 				  html += "<div class = 'itemProduto'>";
-				  html += "<a class='btn btn-default btn-itemProduto' href='"+window.contextRoot+"/comanda/adicionar/item/comanda/" +window.comanda+ "/produto/"+val.id+"/quantidade/1'>";
+				  html += "<a id='"+val.id+"' class='btn btn-default btn-itemProduto'>";
 				  html += "<img src='"+window.contextRoot+"/comanda/resources/images/"+ val.imagemUrl+"' class='imgItemProduto'>";
 				  html += "<div class='textoItemProduto'><h5><strong>"+ val.nome +"</strong></h5></div>"
 			
@@ -35,6 +35,19 @@ $(function(){
 			$(".divGrupoItens").html(html);
 			
 		});
+		
+	});
+	
+	// removido =   href='"+window.contextRoot+"/comanda/adicionar/item/comanda/" +window.comanda+ "/produto/"+val.id+"/quantidade/1'
+	
+	$('.btn-itemProduto').click(function(){
+		
+		var $produtoId = this.id; 
+		var $qtd = document.getElementById('.item-qtd').value; 
+		
+		alert("Hello World");
+		window.location.replace(window.contextRoot+"/comanda/adicionar/item/comanda/" +window.comanda+ "/produto/"+$produtoId+"/quantidade/"+$qtd);
+		
 		
 	});
 

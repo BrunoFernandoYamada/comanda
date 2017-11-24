@@ -101,7 +101,7 @@
 	
 	<script type="text/javascript">
 	$(function() {
-		$("#preco").maskMoney({
+		$(".preco").maskMoney({
 			symbol : 'R$ ',
 			showSymbol : true,
 			thousands : '.',

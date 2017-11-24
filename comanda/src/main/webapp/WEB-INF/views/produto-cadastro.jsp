@@ -43,7 +43,7 @@
 				</div>
 				<div class="form-group col-xs-4">
 					<label for="preco">Preço</label>
-					<sf:input path="preco" id="preco" cssClass="form-control" />
+					<sf:input path="preco" id="preco" cssClass="form-control preco" />
 				</div>
 
 				<div class="form-group col-xs-4">
