@@ -38,8 +38,8 @@
 		<div class="col-xs-3 divListaItens">
 
 			<div class="col-xs-12">
-				<label for="item-qtd">Quantidade</label> <input id="item-qtd"
-					type="number" min="1" class="form-control" value="1">
+				<label for="item-qtd">Quantidade</label> 
+				<input id="item-qtd" type="number" min="1" class="form-control item-qtd" value="1">
 			</div>
 			<div class="col-xs-12">
 
@@ -73,4 +73,19 @@
 </div>
 <script>
 	window.comanda = '${comanda.id}';
+
+	window.onload = function() {
+		$(document).on('click', '.btn-itemProduto', function() {
+					var produtoId = this.id;
+					var qtd = $('#item-qtd').val();
+					
+					window.location.replace(window.contextRoot
+							+ "/comanda/adicionar/item/comanda/"
+							+ window.comanda + "/produto/" + produtoId
+							+ "/quantidade/" + qtd);
+
+				});
+	}
+	
+
 </script>
