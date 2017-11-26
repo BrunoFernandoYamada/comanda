@@ -39,7 +39,8 @@
               </li>
             </ul>
           </li>
-          </br>
+          
+          <br/>
           
           <li class='launcher dropdown hover'>
             <i class="fa fa-list-ol" aria-hidden="true"></i>

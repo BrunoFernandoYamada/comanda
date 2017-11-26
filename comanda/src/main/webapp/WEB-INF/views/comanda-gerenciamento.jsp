@@ -1,5 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <div id='content'>
 	<div class="row divComandaDados">
 		<div class="col-xs-12">
@@ -10,11 +11,11 @@
 			<div class="col-xs-4 form-group">
 				<label for="desconto">Desconto</label> 
 				<input id="desconto"
-					name="desconto" value="${comanda.desconto}" class="preco form-control" disabled="disabled">
+					name="desconto" value="<fmt:formatNumber value="${comanda.desconto}" type="currency" />" class="preco form-control" disabled="disabled">
 			</div>
 			<div class="col-xs-4 form-group">
 				<label for="valorTotal">Valor Total</label> <input id="valorTotal"
-					name="valorTotal" value="${comanda.valorTotal}"
+					name="valorTotal" value="<fmt:formatNumber value="${comanda.valorTotal}" type="currency" />"
 					class="preco form-control" disabled="disabled">
 			</div>
 		</div>
@@ -49,8 +50,8 @@
 						<c:forEach items="${listaItens}" var="item">
 							
 							<tr>
-								<th><p>item -------------- ${item.produto.nome}<br/>
-										Qtd  --------------- ${item.quantidade}   X   ${item.produto.preco}   =   ${item.valorToral}</p></th> 	
+								<th><p>item -------- ${item.produto.nome}<br/>
+										Qtd  -------- ${item.quantidade}   X   <fmt:formatNumber value="${item.produto.preco}" type="currency"/>   =   <fmt:formatNumber value="${item.valorToral}" type="currency"/></p></th> 	
 							</tr>
 							
 											
@@ -58,7 +59,9 @@
 					</tbody>
 					<tfoot>
 						<tr>
-							<th>Total -------------- R$ ${comanda.valorTotal}</th>
+							<th>
+							Total ----------------- <fmt:formatNumber value="${comanda.valorTotal}" type="currency" />
+							</th>
 						</tr>
 					</tfoot>
 				</table>

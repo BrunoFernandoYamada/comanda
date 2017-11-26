@@ -39,9 +39,9 @@ $(function() {
 																+ "/comanda/resources/images/"
 																+ val.imagemUrl
 																+ "' class='imgItemProduto'>";
-														html += "<div class='textoItemProduto'><h5><strong>"
+														html += "<div class='textoItemProduto'><p><strong>"
 																+ val.nome
-																+ "</strong></h5></div>"
+																+ "</strong></p></div>"
 
 														html += "</a>"
 														html += "</div>";
