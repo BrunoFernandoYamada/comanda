@@ -58,3 +58,57 @@ $(function() {
 
 });
 
+function salvarItem() {
+	$.ajax(
+	{
+		type: "POST",
+		url: window.contextRoot + "/comanda/adicionar/item/comanda/"+ window.comanda + "/produto/" + produtoId + "/quantidade/" + qtd,
+		success:
+			function (resultado) {
+				if(reusltado == true){
+					
+				}
+			}
+	});
+	
+	$
+	.getJSON(
+			window.contextRoot
+					+ "/comanda/json/data/listarComandaItens/"
+					+ $id,
+			function(json) {
+
+				var html = '';
+
+				json
+						.forEach(function(val) {
+							var keys = Object
+									.keys(val);
+							html += "<div class = 'itemComanda'>";
+							html += "<a id='"
+									+ val.id
+									+ "' class='btn btn-default btn-itemProduto'>";
+							html += "<img src='"
+									+ window.contextRoot
+									+ "/comanda/resources/images/"
+									+ val.imagemUrl
+									+ "' class='imgItemProduto'>";
+							html += "<div class='textoItemProduto'><p><strong>"
+									+ val.nome
+									+ "</strong></p></div>"
+
+							html += "</a>"
+							html += "</div>";
+						});
+
+				$(".divGrupoItens").html(html);
+
+			});
+	
+	
+	
+}
+
+
+
+
