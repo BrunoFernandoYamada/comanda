@@ -38,20 +38,20 @@
 		</div>
 		<div class="col-xs-3 divListaItens">
 
-			<div class="col-xs-12">
-				<label for="item-qtd">Quantidade</label> 
+			<div class="col-xs-12 form-group" >
+				<label for="item-qtd" class="control-label">Quantidade</label> 
 				<input id="item-qtd" type="number" min="1" class="form-control item-qtd" value="1">
 			</div>
+			<hr>
 			<div class="col-xs-12">
 
 				<table class="table table-striped table-bordered">
 					<thead></thead>
 					<tbody>
 						<c:forEach items="${listaItens}" var="item">
-							
+	
 							<tr>
-								<th><p>item -------- ${item.produto.nome}<br/>
-										Qtd  -------- ${item.quantidade}   X   <fmt:formatNumber value="${item.produto.preco}" type="currency"/>   =   <fmt:formatNumber value="${item.valorToral}" type="currency"/></p></th> 	
+								<th><small>${item.produto.nome}</small></th><th><small> ${item.quantidade}   X   <fmt:formatNumber value="${item.produto.preco}" type="currency"/>   =   <fmt:formatNumber value="${item.valorToral}" type="currency"/></small></th> 	
 							</tr>
 							
 											
@@ -60,7 +60,7 @@
 					<tfoot>
 						<tr>
 							<th>
-							Total ----------------- <fmt:formatNumber value="${comanda.valorTotal}" type="currency" />
+							Total </th><th> <fmt:formatNumber value="${comanda.valorTotal}" type="currency" />
 							</th>
 						</tr>
 					</tfoot>
