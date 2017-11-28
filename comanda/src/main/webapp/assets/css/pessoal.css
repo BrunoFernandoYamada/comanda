@@ -1,3 +1,5 @@
+
+
 #mesa_icone {
 	width: 100px;
 	height: 100px;
@@ -76,19 +78,12 @@
  }
  
  .rowFooterGerenciamento{
- 	bottom: 20px;
+ 	bottom: 0;
  }
 
- .footerGerenciamento {
-    height: 50px;
-    bottom: 20px;
-  
-    
+.footerGerenciamento{
+	position: fixed;
+ 	width:100%;	
+ 	bottom: 0;
 }
-
-.btnGerenciamento{
-	margin: 10px;
-	width: 22%;
-}
- 
  
