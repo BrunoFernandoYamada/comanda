@@ -75,11 +75,20 @@
  	margin-top: 5px;
  }
  
- .footer {
-    position: fixed;
+ .rowFooterGerenciamento{
+ 	bottom: 20px;
+ }
+
+ .footerGerenciamento {
     height: 50px;
-    bottom: 0;
-    padding: 2px 5px 2px 5px;
+    bottom: 20px;
+  
+    
+}
+
+.btnGerenciamento{
+	margin: 10px;
+	width: 22%;
 }
  
  

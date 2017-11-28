@@ -82,17 +82,16 @@
 
 
 	</div>
-	<div class="row">
-		<div class="col-xs-12 footer">
+	<div class="row rowFooterGerenciamento">
+		<div class="col-xs-12 footerGerenciamento">
 	
-				<a class="btn btn-default btn-lg col-xs-3" href="#">Finalizar</a>
+				<a class="btn btn-default btn-lg btnGerenciamento" href="#">Finalizar</a>	
 		
-		
-				<a class="btn btn-default btn-lg col-xs-3" href="#">Produção</a>
+				<a class="btn btn-default btn-lg btnGerenciamento" href="#">Produção</a>
 			
-				<a class="btn btn-default btn-lg col-xs-3" href="#">cancelar</a>
+				<a class="btn btn-default btn-lg btnGerenciamento" href="#">cancelar</a>
 			
-				<a class="btn btn-default btn-lg col-xs-3" href="#">Sair</a>
+				<a class="btn btn-default btn-lg btnGerenciamento" href="#">Sair</a>
 			
 		</div>
 	</div>
