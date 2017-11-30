@@ -77,13 +77,18 @@
  	margin-top: 5px;
  }
  
+ .corpo{
+ 	height: 100%;
+ 	position: relative;
+ }
+ 
  .rowFooterGerenciamento{
- 	bottom: 0;
+ 	position: absolute;
+ 	width:100%;	
+ 	bottom: 20px;
  }
 
 .footerGerenciamento{
-	position: fixed;
- 	width:100%;	
- 	bottom: 0;
+	
 }
  
