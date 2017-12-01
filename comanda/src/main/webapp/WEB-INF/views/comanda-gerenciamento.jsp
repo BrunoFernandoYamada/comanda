@@ -85,14 +85,20 @@
 		</div>
 		<div class="row rowFooterGerenciamento">
 			<div class="col-xs-12">
-
-				<a class="btn btn-default btn-lg btnGerenciamento col-xs-3" href="#">Finalizar</a>
-
-				<a class="btn btn-default btn-lg btnGerenciamento col-xs-3" href="#">Produção</a>
-
-				<a class="btn btn-default btn-lg btnGerenciamento col-xs-3" href="#">cancelar</a>
-
-				<a class="btn btn-default btn-lg btnGerenciamento col-xs-3" href="#">Sair</a>
+				<div class=" col-xs-3">
+					<a class="btn btn-info btn-lg btnGerenciamento" href="#">Finalizar</a>
+				</div>
+				<div class=" col-xs-3">
+					<a class="btn btn-success btn-lg btnGerenciamento"
+						href="#">Produção</a>
+				</div>
+				<div class="col-xs-3">
+					<a class="btn btn-danger btn-lg btnGerenciamento" href="#">cancelar</a>
+				</div>
+				<div class="col-xs-3">
+					<a class="btn btn-warning btn-lg btnGerenciamento"
+						href="${contextRoot}/comanda">Sair</a>
+				</div>
 
 			</div>
 		</div>
