@@ -143,4 +143,19 @@ public class ComandaController {
 		return clienteDAO.listar();
 	}
 
+	// Método responsável pela tela de fechamento
+	@RequestMapping(value="/fechamento/{id}")
+	public ModelAndView abreFechamento(@PathVariable("id") Long id) {
+		
+		Comanda comanda = comandaDAO.buscar(id);
+		
+		ModelAndView mv = new ModelAndView("index");
+		
+		mv.addObject("userClickComandaFechamento", true);
+		mv.addObject("comanda", comanda);
+		mv.addObject("listaItens", itemComandaDAO.listarItemComandaPorComanda(comanda.getId()));
+		
+		return mv; 
+	}
+	
 }
