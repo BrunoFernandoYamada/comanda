@@ -86,7 +86,8 @@
 		<div class="row rowFooterGerenciamento">
 			<div class="col-xs-12">
 				<div class=" col-xs-3">
-					<a class="btn btn-info btn-lg btnGerenciamento" href="#">Finalizar</a>
+					<a class="btn btn-info btn-lg btnGerenciamento"
+					 href="${contextRoot}/comanda/fechamento/${comanda.id}">Finalizar</a>
 				</div>
 				<div class=" col-xs-3">
 					<a class="btn btn-success btn-lg btnGerenciamento"

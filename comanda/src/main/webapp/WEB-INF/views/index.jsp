@@ -80,6 +80,11 @@
 		<c:if test="${userClickGerirLocalizacao == true}">
 			<%@include file="localizacao-cadastro.jsp"%>
 		</c:if>
+		
+		<c:if test="${userClickComandaFechamento == true}">
+			<%@include file="fechamento.jsp" %>
+		</c:if>
+		
 
 		<!-- End of Content  -->
 
