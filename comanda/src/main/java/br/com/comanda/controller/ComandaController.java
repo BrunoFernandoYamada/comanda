@@ -154,7 +154,7 @@ public class ComandaController {
 		mv.addObject("userClickComandaFechamento", true);
 		mv.addObject("comanda", comanda);
 		mv.addObject("listaItens", itemComandaDAO.listarItemComandaPorComanda(comanda.getId()));
-		
+		mv.addObject("titulo", "Fechamento da Comanda");
 		return mv; 
 	}
 	
