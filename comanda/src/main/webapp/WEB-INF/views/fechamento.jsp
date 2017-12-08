@@ -5,14 +5,16 @@
 		<div class="col-xs-12">
 
 			<table class="table table-striped table-bordered">
-			
+
 				<c:set var="num" value="1"></c:set>
-				<thead> <h4>Mesa: ${comanda.numeroComanda}</h4></thead>
+				<thead>
+					<h4>Mesa: ${comanda.numeroComanda}</h4>
+				</thead>
 				<tbody>
 					<tr>
-						<th> Nº</th>
-						<th> Item</th>
-						<th class="text-right"> Valor</th>
+						<th>Nº</th>
+						<th>Item</th>
+						<th class="text-right">Valor</th>
 					</tr>
 					<c:forEach items="${listaItens}" var="item">
 
@@ -31,7 +33,7 @@
 				</tbody>
 				<tfoot>
 					<tr>
-						
+
 						<th colspan="2">Total</th>
 						<th class="text-right"><fmt:formatNumber
 								value="${comanda.valorTotal}" type="currency" /></th>
@@ -41,5 +43,19 @@
 
 
 		</div>
+	</div>
+	<div class="row footer">
+
+		<div class="col-xs-12 text-right">
+			<div class="form-group col-xs-offset-9 col-xs-3 text-left">
+				<label for="valorTotal">VALOR TOTAL</label> 
+				<input id="valorTotal" class="form-control" type="text" disabled="disabled" value='<fmt:formatNumber value="${comanda.valorTotal}" type="currency" />' />
+			</div>
+			<div class="form-group col-xs-offset-9 col-xs-3 text-left">
+				<label for="valorTotal">VALOR PAGO</label> 
+				<input id="valorTotal" class="form-control preco" type="text"  value='<fmt:formatNumber value="${comanda.valorTotal}" type="currency" />' />
+			</div>
+		</div>
+
 	</div>
 </div>

@@ -110,7 +110,7 @@
 			symbol : 'R$ ',
 			showSymbol : true,
 			thousands : '.',
-			decimal : '.',
+			decimal : ',',
 			symbolStay : false,
 			precision: 2
 			
