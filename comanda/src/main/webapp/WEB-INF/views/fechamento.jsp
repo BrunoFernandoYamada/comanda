@@ -47,13 +47,30 @@
 	<div class="row footer">
 
 		<div class="col-xs-12 text-right">
-			<div class="form-group col-xs-offset-9 col-xs-3 text-left">
-				<label for="valorTotal">VALOR TOTAL</label> 
-				<input id="valorTotal" class="form-control" type="text" disabled="disabled" value='<fmt:formatNumber value="${comanda.valorTotal}" type="currency" />' />
+			<div class="form-group col-xs-3 text-left">
+				<label for="valorTotal">DESCONTO</label> 
+				<input id="valorTotal" class="form-control input-lg" type="text" disabled="disabled" value='<fmt:formatNumber value="${comanda.desconto}" type="currency" />' />
+				
+				<label for="valorTotal">SERVIÇO</label> 
+				<input id="valorTotal" class="form-control preco input-lg" type="text"  value='<fmt:formatNumber value="${comanda.desconto}" type="currency" />' />
+						
 			</div>
-			<div class="form-group col-xs-offset-9 col-xs-3 text-left">
+		
+			<div class="form-group col-xs-3 text-left">
+				<label for="valorTotal">VALOR TOTAL</label> 
+				<input id="valorTotal" class="form-control input-lg" type="text" disabled="disabled" value='<fmt:formatNumber value="${comanda.valorTotal}" type="currency" />' />
+				
+				<label for="valorTotal">VALOR A PAGAR</label> 
+				<input id="valorTotal" class="form-control preco input-lg" type="text"  value='<fmt:formatNumber value="${comanda.valorTotal}" type="currency" />' />
+						
+			</div>
+
+			<div class="form-group col-xs-3 text-left">
 				<label for="valorTotal">VALOR PAGO</label> 
-				<input id="valorTotal" class="form-control preco" type="text"  value='<fmt:formatNumber value="${comanda.valorTotal}" type="currency" />' />
+				<input id="valorTotal" class="form-control input-lg" type="text" disabled="disabled" value='<fmt:formatNumber value="${comanda.valorTotal}" type="currency" />' />
+				<label for="valorTotal">TROCO</label> 
+				<input id="valorTotal" class="form-control preco input-lg" type="text"  value='<fmt:formatNumber value="${comanda.desconto}" type="currency" />' />
+			
 			</div>
 		</div>
 
