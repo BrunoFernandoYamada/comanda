@@ -4,7 +4,7 @@
 	<div class="row">
 		<div class="col-xs-12">
 
-			<table class="table table-striped table-bordered">
+			<table id="table-fx" class="table table-striped table-bordered">
 
 				<c:set var="num" value="1"></c:set>
 				<thead>
@@ -59,18 +59,20 @@
 			<div class="form-group col-xs-3 text-left">
 				<label for="valorTotal">VALOR TOTAL</label> 
 				<input id="valorTotal" class="form-control input-lg" type="text" disabled="disabled" value='<fmt:formatNumber value="${comanda.valorTotal}" type="currency" />' />
-				
-				<label for="valorTotal">VALOR A PAGAR</label> 
-				<input id="valorTotal" class="form-control preco input-lg" type="text"  value='<fmt:formatNumber value="${comanda.valorTotal}" type="currency" />' />
-						
+				<label for="valorTotal">VALOR PAGO</label> 
+				<input id="valorTotal" class="form-control input-lg" type="text" value='<fmt:formatNumber value="${comanda.valorTotal}" type="currency" />' />
 			</div>
 
 			<div class="form-group col-xs-3 text-left">
-				<label for="valorTotal">VALOR PAGO</label> 
-				<input id="valorTotal" class="form-control input-lg" type="text" disabled="disabled" value='<fmt:formatNumber value="${comanda.valorTotal}" type="currency" />' />
+				
 				<label for="valorTotal">TROCO</label> 
 				<input id="valorTotal" class="form-control preco input-lg" type="text"  value='<fmt:formatNumber value="${comanda.desconto}" type="currency" />' />
 			
+			</div>
+			
+			<div class="form-group col-xs-3">
+				<a class="btn btn-danger btn-lg btn-fx" >Cancelar</a>
+				<a class="btn btn-primary btn-lg btn-fx">Finalizar</a>
 			</div>
 		</div>
 
