@@ -34,7 +34,7 @@
 				<tfoot>
 					<tr>
 
-						<th colspan="2">Total</th>
+						<th colspan="2">Total dos itens</th>
 						<th class="text-right"><fmt:formatNumber
 								value="${comanda.valorTotal}" type="currency" /></th>
 					</tr>
@@ -48,25 +48,25 @@
 
 		<div class="col-xs-12 text-right">
 			<div class="form-group col-xs-3 text-left">
-				<label for="valorTotal">DESCONTO</label> 
-				<input id="valorTotal" class="form-control input-lg" type="text" disabled="disabled" value='<fmt:formatNumber value="${comanda.desconto}" type="currency" />' />
+				<label for="valorDesconto">DESCONTO</label> 
+				<input id="valorDesconto" class="form-control preco input-lg" type="text" disabled="disabled" value='<fmt:formatNumber value="${comanda.desconto}" type="currency" />' />
 				
-				<label for="valorTotal">SERVIÇO</label> 
-				<input id="valorTotal" class="form-control preco input-lg" type="text"  value='<fmt:formatNumber value="${comanda.desconto}" type="currency" />' />
+				<label for="valorServico">SERVIÇO</label> 
+				<input id="valorServico" class="form-control preco input-lg" type="text"  value='<fmt:formatNumber value="${comanda.desconto}" type="currency" />' />
 						
 			</div>
 		
 			<div class="form-group col-xs-3 text-left">
 				<label for="valorTotal">VALOR TOTAL</label> 
-				<input id="valorTotal" class="form-control input-lg" type="text" disabled="disabled" value='<fmt:formatNumber value="${comanda.valorTotal}" type="currency" />' />
-				<label for="valorTotal">VALOR PAGO</label> 
-				<input id="valorTotal" class="form-control input-lg" type="text" value='<fmt:formatNumber value="${comanda.valorTotal}" type="currency" />' />
+				<input id="valorTotal" class="form-control preco input-lg" type="text" disabled="disabled" value='<fmt:formatNumber value="${comanda.valorTotal}" type="currency" />' />
+				<label for="valorPago">VALOR PAGO</label> 
+				<input id="valorPago" class="form-control preco input-lg" type="text" value='<fmt:formatNumber value="${comanda.valorTotal}" type="currency" />'  onKeyup="calculaValorPago()" />
 			</div>
 
 			<div class="form-group col-xs-3 text-left">
 				
-				<label for="valorTotal">TROCO</label> 
-				<input id="valorTotal" class="form-control preco input-lg" type="text"  value='<fmt:formatNumber value="${comanda.desconto}" type="currency" />' />
+				<label for="troco">TROCO</label> 
+				<input id="troco" class="form-control preco input-lg" type="text"  value='<fmt:formatNumber value="${comanda.desconto}" type="currency" />' />
 			
 			</div>
 			
@@ -78,3 +78,49 @@
 
 	</div>
 </div>
+<script type="text/javascript">
+	function calculaValorPago(){
+		var valorTotal = parseFloat(document.getElementById('valorTotal').value.replace('R$', '').replace('.', '').replace(',', ''));
+		
+		var valorPago = parseFloat(document.getElementById('valorPago').value.replace('R$', '').replace('.', '').replace(',', ''));
+		var troco = document.getElementById('troco');
+		
+		if(valorPago > valorTotal){
+	
+			troco.value = "R$ " + formatReal(valorPago - valorTotal);
+			// outra opção de código
+			//$('#troco').val(valorpago - valorTotal);
+		}else{
+			troco.value = 'R$ 0,00';
+		}
+	}
+	
+	function formatReal( int )
+	{
+	        var tmp = int+'';
+	        var neg = false;
+	        if(tmp.indexOf("-") == 0)
+	        {
+	            neg = true;
+	            tmp = tmp.replace("-","");
+	        }
+
+	        if(tmp.length == 1) tmp = "0"+tmp
+
+	        tmp = tmp.replace(/([0-9]{2})$/g, ",$1");
+	        if( tmp.length > 6)
+	            tmp = tmp.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
+
+	        if( tmp.length > 9)
+	            tmp = tmp.replace(/([0-9]{3}).([0-9]{3}),([0-9]{2}$)/g,".$1.$2,$3");
+
+	        if( tmp.length > 12)
+	            tmp = tmp.replace(/([0-9]{3}).([0-9]{3}).([0-9]{3}),([0-9]{2}$)/g,".$1.$2.$3,$4");
+
+	        if(tmp.indexOf(".") == 0) tmp = tmp.replace(".","");
+	        if(tmp.indexOf(",") == 0) tmp = tmp.replace(",","0,");
+
+	    return (neg ? '-'+tmp : tmp);
+	}
+
+</script>
