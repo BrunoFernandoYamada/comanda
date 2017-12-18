@@ -49,10 +49,10 @@
 		<div class="col-xs-12 text-right">
 			<div class="form-group col-xs-3 text-left">
 				<label for="valorDesconto">DESCONTO</label> 
-				<input id="valorDesconto" class="form-control preco input-lg" type="text" disabled="disabled" value='<fmt:formatNumber value="${comanda.desconto}" type="currency" />' />
+				<input id="valorDesconto" class="form-control preco input-lg" type="text"  onKeyup="atualizaTroco()" value='<fmt:formatNumber value="${comanda.desconto}" type="currency"/>' />
 				
 				<label for="valorServico">SERVIÇO</label> 
-				<input id="valorServico" class="form-control preco input-lg" type="text"  value='<fmt:formatNumber value="${comanda.desconto}" type="currency" />' />
+				<input id="valorServico" class="form-control preco input-lg" type="text" onKeyup="atualizaTroco()"/>
 						
 			</div>
 		
@@ -60,7 +60,7 @@
 				<label for="valorTotal">VALOR TOTAL</label> 
 				<input id="valorTotal" class="form-control preco input-lg" type="text" disabled="disabled" value='<fmt:formatNumber value="${comanda.valorTotal}" type="currency" />' />
 				<label for="valorPago">VALOR PAGO</label> 
-				<input id="valorPago" class="form-control preco input-lg" type="text" value='<fmt:formatNumber value="${comanda.valorTotal}" type="currency" />'  onKeyup="calculaValorPago()" />
+				<input id="valorPago" class="form-control preco input-lg" type="text" value='<fmt:formatNumber value="${comanda.valorTotal}" type="currency"/>'   onKeyup="atualizaTroco()"/>
 			</div>
 
 			<div class="form-group col-xs-3 text-left">
@@ -93,6 +93,39 @@
 		}else{
 			troco.value = 'R$ 0,00';
 		}
+	}
+	
+	function atualizaTroco(){
+		var valorTotal = parseFloat(document.getElementById('valorTotal').value.replace('R$', '').replace('.', '').replace(',', ''));
+		var valorPago = parseFloat(document.getElementById('valorPago').value.replace('R$', '').replace('.', '').replace(',', ''));
+		var valorDesconto = parseFloat(document.getElementById('valorDesconto').value.replace('R$', '').replace('.', '').replace(',', ''));
+		var valorServico = parseFloat(document.getElementById('valorServico').value.replace('R$', '').replace('.', '').replace(',', ''));
+		
+		var troco = document.getElementById('troco');
+		var total = document.getElementById('valorTotal');
+		
+		if((valorTotal + valorServico) > valorDesconto){
+			
+			valorTotal = valotTotal + valorServico - valorDesconto
+			
+			if(valorPago > valorTotal){
+				
+				troco.value = "R$ " + formatReal(valorPago - valorTotal);
+				// outra opção de código
+				//$('#troco').val(valorpago - valorTotal);
+			}else{
+				troco.value = 'R$ 0,00';
+			}
+			
+			total.value = "R$ " + formatReal(valorTotal);
+			
+			
+		}else{
+			alert('O desconto não pode ser maior que o valor Total');
+		}
+		
+		
+		
 	}
 	
 	function formatReal( int )
