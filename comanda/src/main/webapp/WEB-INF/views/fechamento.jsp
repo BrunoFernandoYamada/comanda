@@ -3,13 +3,13 @@
 <div id="content">
 	<div class="row  div-tabela-fechamento">
 		<div class="col-xs-12">
-
+			
+					<h4>Mesa: ${comanda.numeroComanda}</h4>
+				
 			<table id="table-fx" class="table table-striped table-bordered">
 
 				<c:set var="num" value="1"></c:set>
-				<thead>
-					<h4>Mesa: ${comanda.numeroComanda}</h4>
-				</thead>
+				
 				<tbody>
 					<tr>
 						<th>Nº</th>
@@ -64,18 +64,17 @@
 					class="form-control preco input-lg" type="text" disabled="disabled"
 					value='<fmt:formatNumber value="${comanda.valorTotal}" type="currency" />' />
 				<label for="valorPago">VL. PAGO</label> <input id="valorPago"
-					class="form-control preco input-lg" type="text"
-					value='R$ 0,00'
+					class="form-control preco input-lg" type="text" value='R$ 0,00'
 					onKeyup="atualizaTroco()" />
 			</div>
 
 			<div class="form-group col-xs-3 text-left">
 
-				<label for="troco">TROCO</label> <input id="troco" disabled="disabled"
-					class="form-control preco input-lg" type="text"
+				<label for="troco">TROCO</label> <input id="troco"
+					disabled="disabled" class="form-control preco input-lg" type="text"
 					value='<fmt:formatNumber value="${comanda.desconto}" type="currency" />' />
-				<input id="totalFixo"
-					class="form-control preco input-lg" type="hidden" disabled="disabled"
+				<input id="totalFixo" class="form-control preco input-lg"
+					type="hidden" disabled="disabled"
 					value='<fmt:formatNumber value="${comanda.valorTotal}" type="currency" />' />
 			</div>
 
@@ -169,9 +168,7 @@
 		//...
 	}
 	
-	
-	function formatReal( int )
-	{
+	function formatReal( int ){
 	        var tmp = int+'';
 	        var neg = false;
 	        if(tmp.indexOf("-") == 0)
