@@ -3,13 +3,13 @@
 <div id="content">
 	<div class="row  div-tabela-fechamento">
 		<div class="col-xs-12">
-			
-					<h4>Mesa: ${comanda.numeroComanda}</h4>
-				
+
+			<h4>Mesa: ${comanda.numeroComanda}</h4>
+
 			<table id="table-fx" class="table table-striped table-bordered">
 
 				<c:set var="num" value="1"></c:set>
-				
+
 				<tbody>
 					<tr>
 						<th>Nº</th>
@@ -50,7 +50,7 @@
 			<div class="form-group col-xs-3 text-left">
 				<label for="valorDesconto">DESCONTO</label> <input
 					id="valorDesconto" class="form-control preco input-lg" type="text"
-					onKeyup="atualizaTroco()"
+					onKeyup="atualizaTroco()" 
 					value='<fmt:formatNumber value="${comanda.desconto}" type="currency"/>' />
 
 				<label for="valorServico">SERVIÇO</label> <input id="valorServico"
@@ -107,6 +107,8 @@
 		}
 	}
 	 */
+	 
+	 
 	function atualizaTroco(){
 		
 		var totalFixo = parseFloat(document.getElementById('totalFixo').value.replace('R$', '').replace('.', '').replace(',', ''));		
@@ -117,7 +119,6 @@
 		
 		var troco = document.getElementById('troco');
 		var total = document.getElementById('valorTotal');
-		
 		//corrigir valor nulo...
 		
 		var desconto = document.getElementById('valorDesconto');
@@ -150,7 +151,8 @@
 			
 		}else{
 			
-			alert('O desconto não pode ser maior que o valor Total, desconto!!!');
+			alert('O desconto não pode ser maior que o valor Total!!!');
+			desconto.value = 'R$ 0,00';
 		}
 		
 		subTotal = 0;
@@ -168,8 +170,8 @@
 		//...
 	}
 	
-	function formatReal( int ){
-	        var tmp = int+'';
+	function formatReal( inteiro ){
+	        var tmp = inteiro+'';
 	        var neg = false;
 	        if(tmp.indexOf("-") == 0)
 	        {
