@@ -97,11 +97,21 @@
 }
 
 #table-fx{
-	height: 90%;
+
 }
 
 .btn-fx{
 	margin-top: 20px;
 	width: 48%
 }
+
+.rowFooterFx{
+ 	width:100%;	
+	height: 40%;
+	padding-bottom: 0px;
+}
  
+.div-tabela-fechamento{
+	overflow: auto;
+	height: 60%;
+} 

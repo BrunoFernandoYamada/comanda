@@ -1,7 +1,7 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div id="content">
-	<div class="row">
+	<div class="row  div-tabela-fechamento">
 		<div class="col-xs-12">
 
 			<table id="table-fx" class="table table-striped table-bordered">
@@ -44,7 +44,7 @@
 
 		</div>
 	</div>
-	<div class="row footer">
+	<div class="row footer rowFooterFx">
 
 		<div class="col-xs-12 text-right">
 			<div class="form-group col-xs-3 text-left">
@@ -65,7 +65,7 @@
 					value='<fmt:formatNumber value="${comanda.valorTotal}" type="currency" />' />
 				<label for="valorPago">VALOR PAGO</label> <input id="valorPago"
 					class="form-control preco input-lg" type="text"
-					value='<fmt:formatNumber value="${comanda.valorTotal}" type="currency"/>'
+					value='R$ 0,00'
 					onKeyup="atualizaTroco()" />
 			</div>
 
@@ -120,10 +120,11 @@
 		var total = document.getElementById('valorTotal');
 		
 		//corrigir valor nulo...
+		
 		var desconto = document.getElementById('valorDesconto');
 		var servico = document.getElementById('valorServico');
 		var pago = document.getElementById('valorPago');
-		
+		 
 		if(isNaN(valorDesconto)){
 			valorDesconto = 0;
 		}
@@ -167,6 +168,7 @@
 		}
 		//...
 	}
+	
 	
 	function formatReal( int )
 	{
