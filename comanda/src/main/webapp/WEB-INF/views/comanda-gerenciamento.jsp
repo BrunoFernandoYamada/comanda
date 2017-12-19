@@ -24,7 +24,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row row-gerenciameto">
 
 			<div class="col-xs-2 divBtnGrupo">
 
@@ -48,7 +48,7 @@
 						value="1">
 				</div>
 				<hr>
-				<div class="col-xs-12">
+				<div class="col-xs-12 div-tabela-itens">
 
 					<table class="table table-striped table-bordered">
 						<thead></thead>

@@ -60,10 +60,10 @@
 			</div>
 
 			<div class="form-group col-xs-3 text-left">
-				<label for="valorTotal">VALOR TOTAL</label> <input id="valorTotal"
+				<label for="valorTotal">VL. TOTAL</label> <input id="valorTotal"
 					class="form-control preco input-lg" type="text" disabled="disabled"
 					value='<fmt:formatNumber value="${comanda.valorTotal}" type="currency" />' />
-				<label for="valorPago">VALOR PAGO</label> <input id="valorPago"
+				<label for="valorPago">VL. PAGO</label> <input id="valorPago"
 					class="form-control preco input-lg" type="text"
 					value='R$ 0,00'
 					onKeyup="atualizaTroco()" />
