@@ -36,7 +36,7 @@
  
  .row-gerenciameto{
 	height: 80%;
-	padding-bottom: 10px;
+	padding-bottom: 0px;
 }
  
  .btn-grupo{
@@ -88,9 +88,9 @@
  }
  
  .rowFooterGerenciamento{
- 	padding-bottom: 5px;
+ 	padding-bottom: 20px;
  	width:100%;	
- 	padding-top: 10px;
+ 	padding-top: 5px;
 
  }
 
