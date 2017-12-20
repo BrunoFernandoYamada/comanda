@@ -48,7 +48,7 @@
 						value="1">
 				</div>
 				<hr>
-				<div class="col-xs-12 div-tabela-itens">
+				<div class="col-xs-12 div-tabela-itens" id="div-tabela-itens">
 
 					<table class="table table-striped table-bordered">
 						<thead></thead>
@@ -122,5 +122,16 @@
 							+ "/quantidade/" + qtd);
 
 				});
+		
+		gotoBottom();
 	}
+	
+
+
+	function gotoBottom() {
+		var element = document.getElementById('div-tabela-itens');
+		element.scrollTop = element.scrollHeight - element.clientHeight;
+	}
+	
+	
 </script>

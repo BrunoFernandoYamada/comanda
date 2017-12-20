@@ -1,6 +1,7 @@
 
 $(function() {
 
+	
 	var $alert = $('.alert');
 
 	if ($alert.length) {

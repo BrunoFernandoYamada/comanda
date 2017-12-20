@@ -1,7 +1,7 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div id="content">
-	<div class="row  div-tabela-fechamento">
+	<div class="row  div-tabela-fechamento" id="div-tabela-fechamento">
 		<div class="col-xs-12">
 
 			<h4>Mesa: ${comanda.numeroComanda}</h4>
@@ -50,7 +50,7 @@
 			<div class="form-group col-xs-3 text-left">
 				<label for="valorDesconto">DESCONTO</label> <input
 					id="valorDesconto" class="form-control preco input-lg" type="text"
-					onKeyup="atualizaTroco()" 
+					onKeyup="atualizaTroco()"
 					value='<fmt:formatNumber value="${comanda.desconto}" type="currency"/>' />
 
 				<label for="valorServico">SERVIÇO</label> <input id="valorServico"
@@ -87,7 +87,12 @@
 	</div>
 </div>
 <script type="text/javascript">
+	window.onload = gotoBottom();
 
+	function gotoBottom() {
+		var element = document.getElementById('div-tabela-fechamento');
+		element.scrollTop = element.scrollHeight - element.clientHeight;
+	}
 
 	window.total = '${comanda.valorTotal}';
 	/* Não Utilizado
@@ -107,94 +112,101 @@
 		}
 	}
 	 */
-	 
-	 
-	function atualizaTroco(){
-		
-		var totalFixo = parseFloat(document.getElementById('totalFixo').value.replace('R$', '').replace('.', '').replace(',', ''));		
-		var valorTotal = parseFloat(document.getElementById('valorTotal').value.replace('R$', '').replace('.', '').replace(',', ''));
-		var valorPago = parseFloat(document.getElementById('valorPago').value.replace('R$', '').replace('.', '').replace(',', ''));
-		var valorDesconto = parseFloat(document.getElementById('valorDesconto').value.replace('R$', '').replace('.', '').replace(',', ''));
-		var valorServico = parseFloat(document.getElementById('valorServico').value.replace('R$', '').replace('.', '').replace(',', ''));
-		
+
+	function atualizaTroco() {
+
+		var totalFixo = parseFloat(document.getElementById('totalFixo').value
+				.replace('R$', '').replace('.', '').replace(',', ''));
+		var valorTotal = parseFloat(document.getElementById('valorTotal').value
+				.replace('R$', '').replace('.', '').replace(',', ''));
+		var valorPago = parseFloat(document.getElementById('valorPago').value
+				.replace('R$', '').replace('.', '').replace(',', ''));
+		var valorDesconto = parseFloat(document.getElementById('valorDesconto').value
+				.replace('R$', '').replace('.', '').replace(',', ''));
+		var valorServico = parseFloat(document.getElementById('valorServico').value
+				.replace('R$', '').replace('.', '').replace(',', ''));
+
 		var troco = document.getElementById('troco');
 		var total = document.getElementById('valorTotal');
 		//corrigir valor nulo...
-		
+
 		var desconto = document.getElementById('valorDesconto');
 		var servico = document.getElementById('valorServico');
 		var pago = document.getElementById('valorPago');
-		 
-		if(isNaN(valorDesconto)){
+
+		if (isNaN(valorDesconto)) {
 			valorDesconto = 0;
 		}
-		if(isNaN(valorServico)){
+		if (isNaN(valorServico)) {
 			valorServico = 0;
 		}
-		
+
 		// ...
-		
-		if(valorDesconto < totalFixo + valorServico){
-			
+
+		if (valorDesconto < totalFixo + valorServico) {
+
 			var subTotal = totalFixo + valorServico - valorDesconto;
-		
-			if(valorPago > subTotal){
-				
+
+			if (valorPago > subTotal) {
+
 				troco.value = "R$ " + formatReal(valorPago - subTotal);
 				// outra opção de código
 				//$('#troco').val(valorpago - valorTotal);
-			}else{
+			} else {
 				troco.value = 'R$ 0,00';
 			}
-			
+
 			total.value = "R$ " + formatReal(subTotal);
-			
-		}else{
-			
+
+		} else {
+
 			alert('O desconto não pode ser maior que o valor Total!!!');
 			desconto.value = 'R$ 0,00';
 		}
-		
+
 		subTotal = 0;
-		
+
 		//Corrigir vaor nulo...
-		if(valorDesconto == 0){
+		if (valorDesconto == 0) {
 			desconto.value = 'R$ 0,00';
 		}
-		if(valorServico == 0){
+		if (valorServico == 0) {
 			servico.value = 'R$ 0,00';
 		}
-		if(valorPago == 0){
+		if (valorPago == 0) {
 			pago.value = 'R$ 0,00';
 		}
 		//...
 	}
-	
-	function formatReal( inteiro ){
-	        var tmp = inteiro+'';
-	        var neg = false;
-	        if(tmp.indexOf("-") == 0)
-	        {
-	            neg = true;
-	            tmp = tmp.replace("-","");
-	        }
 
-	        if(tmp.length == 1) tmp = "0"+tmp
+	function formatReal(inteiro) {
+		var tmp = inteiro + '';
+		var neg = false;
+		if (tmp.indexOf("-") == 0) {
+			neg = true;
+			tmp = tmp.replace("-", "");
+		}
 
-	        tmp = tmp.replace(/([0-9]{2})$/g, ",$1");
-	        if( tmp.length > 6)
-	            tmp = tmp.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
+		if (tmp.length == 1)
+			tmp = "0" + tmp
 
-	        if( tmp.length > 9)
-	            tmp = tmp.replace(/([0-9]{3}).([0-9]{3}),([0-9]{2}$)/g,".$1.$2,$3");
+		tmp = tmp.replace(/([0-9]{2})$/g, ",$1");
+		if (tmp.length > 6)
+			tmp = tmp.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
 
-	        if( tmp.length > 12)
-	            tmp = tmp.replace(/([0-9]{3}).([0-9]{3}).([0-9]{3}),([0-9]{2}$)/g,".$1.$2.$3,$4");
+		if (tmp.length > 9)
+			tmp = tmp
+					.replace(/([0-9]{3}).([0-9]{3}),([0-9]{2}$)/g, ".$1.$2,$3");
 
-	        if(tmp.indexOf(".") == 0) tmp = tmp.replace(".","");
-	        if(tmp.indexOf(",") == 0) tmp = tmp.replace(",","0,");
+		if (tmp.length > 12)
+			tmp = tmp.replace(/([0-9]{3}).([0-9]{3}).([0-9]{3}),([0-9]{2}$)/g,
+					".$1.$2.$3,$4");
 
-	    return (neg ? '-'+tmp : tmp);
+		if (tmp.indexOf(".") == 0)
+			tmp = tmp.replace(".", "");
+		if (tmp.indexOf(",") == 0)
+			tmp = tmp.replace(",", "0,");
+
+		return (neg ? '-' + tmp : tmp);
 	}
-
 </script>
