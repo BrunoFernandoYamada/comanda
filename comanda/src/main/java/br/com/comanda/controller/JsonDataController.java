@@ -41,6 +41,13 @@ public class JsonDataController {
 		
 	}
 	
+	@RequestMapping("/listarProdutos")
+	@ResponseBody
+	public List<Produto> listarProdutos(){
+		
+		return produtoDAO.listar();
+	}
+	
 	@RequestMapping("/listarComandaItens/{id}")
 	@ResponseBody
 	public List<ItemComanda> listarComandaItens(@PathVariable("id") Long id){

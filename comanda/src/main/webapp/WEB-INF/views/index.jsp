@@ -80,11 +80,11 @@
 		<c:if test="${userClickGerirLocalizacao == true}">
 			<%@include file="localizacao-cadastro.jsp"%>
 		</c:if>
-		
+
 		<c:if test="${userClickComandaFechamento == true}">
-			<%@include file="fechamento.jsp" %>
+			<%@include file="fechamento.jsp"%>
 		</c:if>
-		
+
 
 		<!-- End of Content  -->
 
@@ -98,25 +98,27 @@
 	<script src="${js}/jquery.min.js" type="text/javascript"></script>
 	<script src="${js}/jquery-ui.min.js" type="text/javascript"></script>
 	<script src="${js}/modernizr.min.js" type="text/javascript"></script>
+	<script src="${js}/jquery.dataTables.js"></script>
+	<script src="${js}/dataTables.bootstrap4.js"></script>
 	<script src="${js}/application.js" type="text/javascript"></script>
 	<script src="${js}/pessoal.js" type="text/javascript"></script>
 	<script src="${js}/mascara-data.js" type="text/javascript"></script>
 	<script src="${js}/jquery.maskMoney.js" type="text/javascript"></script>
 	<!-- Google Analytics -->
-	
+
 	<script type="text/javascript">
-	$(function() {
-		$(".preco").maskMoney({
-			symbol : 'R$ ',
-			showSymbol : true,
-			thousands : '.',
-			decimal : ',',
-			symbolStay : false,
-			precision: 2
-			
-		});
-	})
-</script>
+		$(function() {
+			$(".preco").maskMoney({
+				symbol : 'R$ ',
+				showSymbol : true,
+				thousands : '.',
+				decimal : ',',
+				symbolStay : false,
+				precision : 2
+
+			});
+		})
+	</script>
 
 </body>
 </html>

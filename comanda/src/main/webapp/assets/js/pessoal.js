@@ -97,7 +97,51 @@ $(function() {
 	});
 	
 	
-	
+	var $tabelaProdutos = $('#tabela-produtos');
+	if($tabelaProdutos.length){
+		
+		var jsonUrl = window.contextRoot+'/comanda/json/data/listarProdutos';
+		
+		$tabelaProdutos.DataTable({
+			lengthMenu: [[3,5,10,-1],['3 itens','5 itens','10 itens','All',]],
+			pageLength: 5,
+			ajax:{
+				url: jsonUrl,
+				dataSrc: ''
+			},
+			columns:[
+				{
+					data: 'id'
+				},
+				{
+					data: 'codigoBarra'
+				},
+				{
+					data: 'nome'
+				},
+				{
+					data: 'grupo'
+				},
+				{
+					data: 'quantidadeEstoque'
+				},
+				{
+					data: 'preco'
+				},
+				{
+					data: 'localizacao'
+				},
+				{
+					data: 'id',
+					mRender: function(data,type,row){
+						return data;
+					}
+				},
+			]
+			
+		});
+		
+	}
 	
 	
 });

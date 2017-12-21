@@ -93,7 +93,7 @@
 		</div>
 		<div class='panel-body'>
 			<div style="overflow: auto">
-				<table id="table-produtos"
+				<table id="tabela-produtos"
 					class="table table-striped table-bordered">
 					<thead>
 						<tr>
