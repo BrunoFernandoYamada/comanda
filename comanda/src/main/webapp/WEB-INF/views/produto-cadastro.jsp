@@ -14,7 +14,7 @@
 	<div class='panel panel-default'>
 		<div class='panel-heading'>
 			<i class="fa fa-product-hunt" aria-hidden="true"></i> <strong>
-				Gerenciamento de Produtos</strong>
+				Cadastro de Produto</strong>
 			<div class='panel-tools'>
 				<div class='btn-group'>
 					<a class='btn' href='#'> <i class='icon-refresh'></i> Refresh
@@ -26,8 +26,8 @@
 			</div>
 		</div>
 
-		<sf:form action="${contextRoot}/comanda/produto/cadastrar" method="POST"
-			modelAttribute="produto" enctype="multipart/form-data">
+		<sf:form action="${contextRoot}/comanda/produto/cadastrar"
+			method="POST" modelAttribute="produto" enctype="multipart/form-data">
 
 			<!--  Painel Central -->
 			<div class='panel-body'>
@@ -81,9 +81,53 @@
 					class="btn btn-danger">Cancelar</a>
 			</div>
 
-
 		</sf:form>
 	</div>
+
+	<!-- Tabela de Produtos -->
+
+	<div class='panel panel-default'>
+		<div class='panel-heading'>
+			<i class="fa fa-product-hunt" aria-hidden="true"></i> <strong>Produtos
+				Cadastrados</strong>
+		</div>
+		<div class='panel-body'>
+			<div style="overflow: auto">
+				<table id="table-produtos"
+					class="table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Código de Barra</th>
+							<th>Nome</th>
+							<th>Grupo</th>
+							<th>Quantidade</th>
+							<th>Preço</th>
+							<th>Localização</th>
+							<th>Editar</th>
+						</tr>
+					</thead>
+
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Código de Barra</th>
+							<th>Nome</th>
+							<th>Grupo</th>
+							<th>Quantidade</th>
+							<th>Preço</th>
+							<th>Localização</th>
+							<th>Editar</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+		</div>
+		<div class="panel-footer">
+		
+		</div>
+	</div>
+
 </div>
 
 
