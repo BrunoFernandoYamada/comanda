@@ -15,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -87,18 +88,32 @@ public class ProdutoController {
 
 			return "index";
 		}
+		
+		if(produto.getId() == 0) {
+			produtoDAO.adicionar(produto);
+		}else {
+			produtoDAO.alterar(produto);
+		}
 
 		if (!produto.getFile().getOriginalFilename().equals("")) {
 			produto.setImagemUrl(produto.getFile().getOriginalFilename());
 			FileUploadUtility.uploadFile(request, produto.getFile(), produto.getImagemUrl());
 		}
 		
-		produtoDAO.adicionar(produto);
-		
-		
 
 		return "redirect:/produto/cadastrar?operation=produto";
 
+	}
+	
+	@RequestMapping(value="/alterar/{id}")
+	public ModelAndView alterar(@PathVariable("id") Long id) {
+		ModelAndView mv = new ModelAndView("index");
+		
+		mv.addObject("titulo", "Gerir Produtos");
+		mv.addObject("userClickGerirProduto", true);
+		mv.addObject("produto", produtoDAO.buscar(id));
+		
+		return mv;
 	}
 
 	@ModelAttribute("grupos")

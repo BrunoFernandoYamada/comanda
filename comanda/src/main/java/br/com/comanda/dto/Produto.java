@@ -55,7 +55,6 @@ public class Produto {
 		this.nome = nome;
 	}
 	
-	@JsonIgnore
 	public String getCodigoBarra() {
 		return codigoBarra;
 	}

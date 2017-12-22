@@ -100,7 +100,7 @@ $(function() {
 	var $tabelaProdutos = $('#tabela-produtos');
 	if($tabelaProdutos.length){
 		
-		var jsonUrl = window.contextRoot+'/comanda/json/data/listarProdutos';
+		var jsonUrl = window.contextRoot+"/comanda/json/data/listarProdutos";
 		
 		$tabelaProdutos.DataTable({
 			lengthMenu: [[3,5,10,-1],['3 itens','5 itens','10 itens','All',]],
@@ -120,21 +120,30 @@ $(function() {
 					data: 'nome'
 				},
 				{
-					data: 'grupo'
-				},
-				{
 					data: 'quantidadeEstoque'
 				},
 				{
-					data: 'preco'
+					data: 'preco',
+					mRender: function(data,type,row){
+						var str = '';
+						str += '<a><fmt:formatNumber value="'+data+'" type="currency" />';
+						
+						return str;
+					}
 				},
 				{
-					data: 'localizacao'
+					data: 'localizacao.nome'
 				},
 				{
 					data: 'id',
 					mRender: function(data,type,row){
-						return data;
+						
+
+						var str = '';
+						str += '<a href="'+window.contextRoot+'/comanda/produto/alterar/'+data+'" class="btn btn-warning">';
+						str += '<span class="glyphicon glyphicon-pencil"></span></a>';
+						
+						return str;
 					}
 				},
 			]

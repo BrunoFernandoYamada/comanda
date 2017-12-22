@@ -1,5 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <div id='content'>
 	<c:if test="${not empty mensagem}">
 		<div class="col-xs-12">
@@ -100,7 +101,6 @@
 							<th>Id</th>
 							<th>Código de Barra</th>
 							<th>Nome</th>
-							<th>Grupo</th>
 							<th>Quantidade</th>
 							<th>Preço</th>
 							<th>Localização</th>
@@ -108,18 +108,17 @@
 						</tr>
 					</thead>
 
-					<thead>
+					<tfoot>
 						<tr>
 							<th>Id</th>
 							<th>Código de Barra</th>
 							<th>Nome</th>
-							<th>Grupo</th>
 							<th>Quantidade</th>
 							<th>Preço</th>
 							<th>Localização</th>
 							<th>Editar</th>
 						</tr>
-					</thead>
+					</tfoot>
 				</table>
 			</div>
 		</div>
