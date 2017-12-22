@@ -126,7 +126,7 @@ $(function() {
 					data: 'preco',
 					mRender: function(data,type,row){
 						var str = "";
-						str += "R$ "+ data;
+						str += "R$ "+ converterFloatReal(data);
 						
 						return str;
 					}
@@ -154,37 +154,49 @@ $(function() {
 	
 });
 
-function formatReal(inteiro) {
-	
-	var tmp = inteiro + '';
-	var neg = false;
-	if (tmp.indexOf("-") == 0) {
-		neg = true;
-		tmp = tmp.replace("-", "");
+
+function converterFloatReal(valor){
+	  var inteiro = null, decimal = null, c = null, j = null;
+	  var aux = new Array();
+	  valor = ""+valor;
+	  c = valor.indexOf(".",0);
+	  //encontrou o ponto na string
+	  if(c > 0){
+	     //separa as partes em inteiro e decimal
+	     inteiro = valor.substring(0,c);
+	     decimal = valor.substring(c+1,valor.length);
+	     if(decimal.length === 1) {
+	    	 decimal += "0";
+	    	 }
+	  }else{
+	     inteiro = valor;
+	  }
+	   
+	  //pega a parte inteiro de 3 em 3 partes
+	  for (j = inteiro.length, c = 0; j > 0; j-=3, c++){
+	     aux[c]=inteiro.substring(j-3,j);
+	  }
+	   
+	  //percorre a string acrescentando os pontos
+	  inteiro = "";
+	  for(c = aux.length-1; c >= 0; c--){
+	     inteiro += aux[c]+'.';
+	  }
+	  //retirando o ultimo ponto e finalizando a parte inteiro
+	   
+	  inteiro = inteiro.substring(0,inteiro.length-1);
+	   
+	  decimal = parseInt(decimal);
+	  if(isNaN(decimal)){
+	     decimal = "00";
+	  }else{
+	     decimal = ""+decimal;
+	     if(decimal.length === 1){
+	        decimal = "0"+decimal;
+	     }
+	  }
+	  valor = inteiro+","+decimal;
+	  return valor;
 	}
-
-	if (tmp.length == 1)
-		tmp = "0" + tmp
-
-	tmp = tmp.replace(/([0-9]{2})$/g, ",$1");
-	if (tmp.length > 6)
-		tmp = tmp.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
-
-	if (tmp.length > 9)
-		tmp = tmp
-				.replace(/([0-9]{3}).([0-9]{3}),([0-9]{2}$)/g, ".$1.$2,$3");
-
-	if (tmp.length > 12)
-		tmp = tmp.replace(/([0-9]{3}).([0-9]{3}).([0-9]{3}),([0-9]{2}$)/g,
-				".$1.$2.$3,$4");
-
-	if (tmp.indexOf(".") == 0)
-		tmp = tmp.replace(".", "");
-	if (tmp.indexOf(",") == 0)
-		tmp = tmp.replace(",", "0,");
-
-	return (neg ? '-' + tmp : tmp);
-}
-
 
 

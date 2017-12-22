@@ -33,32 +33,34 @@
 			<!--  Painel Central -->
 			<div class='panel-body'>
 
-				<div class="form-group col-xs-8">
-					<label for="nome">Nome do Produto</label>
-					<sf:input path="nome" id="nome" cssClass="form-control" />
-				</div>
-				<div class="form-group col-xs-4">
+				<div class="form-group col-xs-2">
 					<label for="codigoBarra">Código de Barra</label>
 					<sf:input path="codigoBarra" id="codigoBarra"
 						cssClass="form-control" />
 				</div>
-				<div class="form-group col-xs-4">
-					<label for="preco">Preço</label>
-					<sf:input path="preco" id="preco" cssClass="form-control preco" />
+
+				<div class="form-group col-xs-6">
+					<label for="nome">Nome do Produto</label>
+					<sf:input path="nome" id="nome" cssClass="form-control" />
 				</div>
 
-				<div class="form-group col-xs-4">
+				<div class="form-group col-xs-3">
+					<label for="preco">Preço</label>
+					<sf:input path="preco" id="preco" cssClass="form-control preco"  />
+				</div>
+
+				<div class="form-group col-xs-3">
 					<label for="grupo">Grupo</label>
 					<sf:select items="${grupos}" itemLabel="nome" itemValue="id"
 						path="grupo" id="grupo" cssClass="form-control" />
 				</div>
 
-				<div class="form-group col-xs-4">
+				<div class="form-group col-xs-3">
 					<label for="localizacao">Localização</label>
 					<sf:select items="${localizacoes}" itemLabel="nome" itemValue="id"
 						path="localizacao" id="localizacao" cssClass="form-control" />
 				</div>
-				<div class="form-group col-xs-4">
+				<div class="form-group col-xs-2">
 					<label for="quantidadeEstoque">Qtd Estoque</label>
 					<sf:input path="quantidadeEstoque" id="quantidadeEstoque"
 						cssClass="form-control" />
@@ -95,7 +97,7 @@
 		<div class='panel-body'>
 			<div style="overflow: auto">
 				<table id="tabela-produtos"
-					class="table table-striped table-bordered">
+					class="table table-striped table-bordered col-sm-12">
 					<thead>
 						<tr>
 							<th>Id</th>
@@ -122,9 +124,7 @@
 				</table>
 			</div>
 		</div>
-		<div class="panel-footer">
-		
-		</div>
+
 	</div>
 
 </div>
