@@ -125,8 +125,8 @@ $(function() {
 				{
 					data: 'preco',
 					mRender: function(data,type,row){
-						var str = '';
-						str += '<a><fmt:formatNumber value="'+data+'" type="currency" />';
+						var str = "";
+						str += "<fmt:formatNumber value='"+data+"' type='currency' />";
 						
 						return str;
 					}
