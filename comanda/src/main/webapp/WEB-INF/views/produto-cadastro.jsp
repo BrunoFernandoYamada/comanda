@@ -43,10 +43,10 @@
 					<label for="nome">Nome do Produto</label>
 					<sf:input path="nome" id="nome" cssClass="form-control" />
 				</div>
-
+				<fmt:formatNumber value="${produto.preco}" type="currency" var="precoFormatado"/>
 				<div class="form-group col-xs-3">
 					<label for="preco">Preço</label>
-					<sf:input path="preco" id="preco" cssClass="form-control preco"  />
+					<sf:input path="preco" id="preco" cssClass="form-control preco" value="${precoFormatado}" />
 				</div>
 
 				<div class="form-group col-xs-3">
@@ -79,8 +79,15 @@
 			</div>
 
 			<div class="panel-footer text-right">
+			<c:if test="${produto.id == NaN}">
 				<input type="submit" id="submit" value="Salvar"
-					class="btn btn-success"> <a href="${contextRoot}/comanda"
+					class="btn btn-success">
+			</c:if>
+			<c:if test="${produto.id != NaN}">
+				<input type="submit" id="submit" value="Alterar"
+					class="btn btn-success">
+			</c:if>
+				 <a href="${contextRoot}/comanda"
 					class="btn btn-danger">Cancelar</a>
 			</div>
 
