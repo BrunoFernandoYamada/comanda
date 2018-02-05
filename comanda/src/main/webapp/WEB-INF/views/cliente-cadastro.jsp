@@ -101,4 +101,18 @@
 
 		</sf:form>
 	</div>
+	
+	<!-- Tabela de Produtos -->
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<i class="fa fa-user" aria-hidden="true"></i> <strong>Clientes Cadastrados</strong>
+		</div>
+		<div class="panel-body">
+	
+		</div>
+		
+	</div>
+	
+	
+	
 </div>
