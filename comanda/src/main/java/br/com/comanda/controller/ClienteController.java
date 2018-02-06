@@ -15,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -77,9 +78,25 @@ public class ClienteController {
 			cliente.setCpfCnpj(null);
 		}
 		
-		clienteDAO.adicionar(cliente);
-		
+		if(cliente.getId() == 0) {
+			clienteDAO.adicionar(cliente);
+		}else {
+			clienteDAO.alterar(cliente);
+		}
 		return "redirect:/cliente/cadastrar?operation=cliente";
 				
+	}
+	
+	@RequestMapping(value="/alterar/{id}")
+	public ModelAndView alterar(@PathVariable("id") Long id) {
+		
+		ModelAndView mv = new ModelAndView("index");
+		mv.addObject("titulo", "Gerenciamento de Cliente");
+		mv.addObject("userClickGerirCliente", true);
+		mv.addObject("cliente", clienteDAO.buscar(id));
+		
+		return mv;
+		
+		
 	}
 }

@@ -102,12 +102,39 @@
 		</sf:form>
 	</div>
 	
-	<!-- Tabela de Produtos -->
+	<!-- Tabela de Clientes -->
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<i class="fa fa-user" aria-hidden="true"></i> <strong>Clientes Cadastrados</strong>
 		</div>
 		<div class="panel-body">
+
+			<table class="table table-striped table-bordered col-sm-12" id="tabela-clientes">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Nome</th>
+						<th>CPF/CNPJ</th>
+						<th>RG/IE</th>
+						<th>Telefone</th>
+						<th>Celular</th>
+						<th>Editar</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>Id</th>
+						<th>Nome</th>
+						<th>CPF/CNPJ</th>
+						<th>RG/IE</th>
+						<th>Telefone</th>
+						<th>Celular</th>
+						<th>Editar</th>
+					</tr>
+				</tbody>
+				
+			
+			</table>
 	
 		</div>
 		

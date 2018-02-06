@@ -151,6 +151,55 @@ $(function() {
 		
 	}
 	
+	var $tabelaClientes = $('#tabela-clientes');
+	
+	if($tabelaClientes.length){
+		
+		var jsonUrlClientes = window.contextRoot+"/comanda/json/data/listarClientes";
+		
+		$tabelaClientes.DataTable({
+			lengthMenu: [[3,5,10,-1],['3 itens','5 itens','10 itens', 'All',]],
+			pageLength: 5,
+			ajax:{
+				url: jsonUrlClientes,
+				dataSrc: ''
+			},
+			columns:[
+				{
+					data: 'id'
+				},
+				{
+					data: 'nome'
+				},
+				{
+					data: 'cpfCnpj'
+				},
+				{
+					data: 'rgIe'
+				},
+				{
+					data: 'tel'
+				},
+				{
+					data: 'cel'
+				},
+				{
+					data: 'id',
+					mRender: function(data, type, row){
+						var str = '';
+						str += '<a href="'+window.contextRoot+'/comanda/cliente/alterar/'+data+'" class="btn btn-warning">';
+						str += '<span class="glyphicon glyphicon-pencil"></span></a>';
+						
+						return str;
+					}
+						
+				},
+			]
+			
+		});
+		
+	}
+	
 	
 });
 
