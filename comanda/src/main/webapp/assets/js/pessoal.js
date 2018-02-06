@@ -244,6 +244,52 @@ $(function() {
 	}
 	
 	
+	var $tabelaLocalizacoes = $("#tabela-localizacoes");
+	
+	if($tabelaLocalizacoes.length){
+		
+		var jsonUrl = window.contextRoot+"/comanda/json/data/listarLocalizacoes";
+		
+		$tabelaLocalizacoes.DataTable({
+			
+			lengthMenu: [[3,5,10,-1],['3 itens','5itens', '10 itens', 'All',]],
+			
+			pageLength: 5,
+			
+			ajax:{
+				url: jsonUrl,
+				dataSrc: ''
+			},
+		
+			columns:[
+				{
+					data: 'id'
+				},
+				{
+					data: 'nome'
+				},
+				{
+					data: 'caminhoImpressao'
+				},
+				{
+					data: 'id',
+					mRender: function(data,type,row){
+						
+						var str = '';
+						str +=  '<a href="'+window.contextRoot+'/comanda/localizacao/alterar/'+data+'" class="btn btn-warning">';
+						str += '<span class="glyphicon glyphicon-pencil"></span></a>';
+						
+						return str;
+					}
+				},
+			]
+			
+			
+		});
+		
+	}
+	
+	
 });
 
 

@@ -13,8 +13,8 @@
 	</c:if>
 	<div class='panel panel-default'>
 		<div class='panel-heading'>
-			<i class="fa fa-user" aria-hidden="true"></i> <strong> Gerenciamento de
-			Localização</strong>
+			<i class="fa fa-user" aria-hidden="true"></i> <strong>
+				Gerenciamento de Localização</strong>
 			<div class='panel-tools'>
 				<div class='btn-group'>
 					<a class='btn' href='#'> <i class='icon-refresh'></i> Refresh
@@ -26,32 +26,62 @@
 			</div>
 		</div>
 
-		<sf:form action="${contextRoot}/comanda/localizacao/cadastrar" method="POST"
-			modelAttribute="localizacao">
+		<sf:form action="${contextRoot}/comanda/localizacao/cadastrar"
+			method="POST" modelAttribute="localizacao">
 
 			<!--  Painel Central -->
 			<div class='panel-body'>
 
-				<sf:hidden path="id"/>
-				
+				<sf:hidden path="id" />
+
 				<div class="form-group col-xs-8">
 					<label for="nome">Nome da Localização</label>
 					<sf:input path="nome" id="nome" cssClass="form-control" />
 				</div>
-				
+
 				<div class="form-group col-xs-8">
 					<label for="caminhoImpressao">Caminho da Impressora</label>
-					<sf:input path="caminhoImpressao" id="caminhoImpressao" cssClass="form-control" />
+					<sf:input path="caminhoImpressao" id="caminhoImpressao"
+						cssClass="form-control" />
 				</div>
 
 			</div>
 			<div class="panel-footer text-right">
-				
-					<input type="submit" id="submit" value="Salvar" class="btn btn-success"> 
-					<a href="${contextRoot}/comanda"class="btn btn-danger">Cancelar</a>
+
+				<input type="submit" id="submit" value="Salvar"
+					class="btn btn-success"> <a href="${contextRoot}/comanda"
+					class="btn btn-danger">Cancelar</a>
 
 			</div>
 
 		</sf:form>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<i class="fa fa-user" aria-hidden="true"></i> <strong>
+				Localizações Cadastradas</strong>
+		</div>
+		<div class="panel-body">
+			<table id="tabela-localizacoes"
+				class="table table-striped table-bordered col-sm-12">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Nome</th>
+						<th>Caminho</th>
+						<th>Editar</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th>Id</th>
+						<th>Nome</th>
+						<th>Caminho</th>
+						<th>Editar</th>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+
 	</div>
 </div>

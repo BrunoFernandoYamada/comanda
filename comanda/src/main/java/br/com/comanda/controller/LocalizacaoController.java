@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -64,9 +65,25 @@ public class LocalizacaoController {
 			
 		}
 		
-		localizacaoDAO.adicionar(localizacao);
-		
+		if(localizacao.getId() == 0) {
+			localizacaoDAO.adicionar(localizacao);
+		}else {
+			localizacaoDAO.alterar(localizacao);
+		}
 		return "redirect:/localizacao/cadastrar?operation=localizacao";
+				
+	}
+	
+
+	@RequestMapping("/alterar/{id}")
+	public ModelAndView alterar(@PathVariable("id") int id) {
+	
+		ModelAndView mv = new ModelAndView("index");
+		mv.addObject("titulo", "Gerenciamento de Localizacao");
+		mv.addObject("userClickGerirLocalizacao", true);
+		mv.addObject("localizacao", localizacaoDAO.buscar(id));
+		
+		return mv;
 				
 	}
 }

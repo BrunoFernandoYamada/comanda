@@ -121,7 +121,7 @@
 						<th>Editar</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tfoot>
 					<tr>
 						<th>Id</th>
 						<th>Nome</th>
@@ -131,7 +131,7 @@
 						<th>Celular</th>
 						<th>Editar</th>
 					</tr>
-				</tbody>
+				</tfoot>
 				
 			
 			</table>

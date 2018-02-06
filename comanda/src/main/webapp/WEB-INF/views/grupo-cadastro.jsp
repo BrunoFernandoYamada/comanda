@@ -62,13 +62,13 @@
 						<th>Editar</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tfoot>
 					<tr>
 						<th>Id</th>
 						<th>Nome</th>
 						<th>Editar</th>
 					</tr>
-				</tbody>
+				</tfoot>
 			</table>
 		</div>
 	</div>
