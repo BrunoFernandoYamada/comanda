@@ -15,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -69,9 +70,26 @@ public class GrupoController {
 			
 		}
 		
-		grupoDAO.adicionar(grupo);
+		if(grupo.getId() == 0) {
+			grupoDAO.adicionar(grupo);
+		}else {
+			grupoDAO.alterar(grupo);
+		}
+		
 		
 		return "redirect:/grupo/cadastrar?operation=grupo";
+				
+	}
+	
+	@RequestMapping("/alterar/{id}")
+	public ModelAndView alterar(@PathVariable("id") int id) {
+	
+		ModelAndView mv = new ModelAndView("index");
+		mv.addObject("titulo", "Gerenciamento de Grupo");
+		mv.addObject("userClickGerirGrupo", true);
+		mv.addObject("grupo", grupoDAO.buscar(id));
+		
+		return mv;
 				
 	}
 }

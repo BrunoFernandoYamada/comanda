@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.comanda.dao.ClienteDAO;
+import br.com.comanda.dao.GrupoDAO;
 import br.com.comanda.dao.ItemComandaDAO;
 import br.com.comanda.dao.ProdutoDAO;
 import br.com.comanda.dto.Cliente;
+import br.com.comanda.dto.Grupo;
 import br.com.comanda.dto.ItemComanda;
 import br.com.comanda.dto.Produto;
 
@@ -37,6 +39,9 @@ public class JsonDataController {
 	
 	@Autowired
 	private ClienteDAO clienteDAO;
+	
+	@Autowired
+	private GrupoDAO grupoDAO;
 	
 	@RequestMapping("/listarProdutoPorGrupo/{id}")
 	@ResponseBody
@@ -67,5 +72,12 @@ public class JsonDataController {
 		
 		return clienteDAO.listar();
 		
+	}
+	
+	@RequestMapping("/listarGrupos")
+	@ResponseBody
+	public List<Grupo> listarGrupos(){
+		
+		return grupoDAO.listar();
 	}
 }

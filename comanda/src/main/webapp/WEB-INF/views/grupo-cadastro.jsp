@@ -49,4 +49,27 @@
 
 		</sf:form>
 	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<i class="fa fa-user" aria-hidden="true"></i> <strong>Grupos Cadastrados</strong>
+		</div>
+		<div class="panel-body">
+			<table id="tabela-grupos" class="table table-striped table-bordered col-sm-12">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Nome</th>
+						<th>Editar</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>Id</th>
+						<th>Nome</th>
+						<th>Editar</th>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </div>
